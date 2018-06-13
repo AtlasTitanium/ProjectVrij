@@ -28,6 +28,7 @@ public class Rain : MonoBehaviour{
 			Debug.Log("enter monster");
 			col.gameObject.GetComponent<gravityMonster>().blocked = true;
 			col.gameObject.transform.localPosition = new Vector2(col.gameObject.transform.localPosition.x-0.5f,col.gameObject.transform.localPosition.y);
+            col.gameObject.GetComponent<gravityMonster>().anim.SetBool("Scared",true);
         }
 
         // iterate through the particles which exited the trigger and make them green

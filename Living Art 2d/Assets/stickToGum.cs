@@ -8,6 +8,7 @@ public class stickToGum : MonoBehaviour {
 	public GameObject Gum;
 	public PickupObject PickObj;
 	private bool onlyOnce = true;
+	private GameObject PickUpPlace;
 	void Update(){
 		if(Gum != null){
 			if(Input.GetMouseButtonDown(0)){
@@ -19,8 +20,8 @@ public class stickToGum : MonoBehaviour {
 					PickObj.Object.GetComponent<Collider2D>().isTrigger = true;
 					PickObj.Object = null;
 					PickObj.picked = false;	
+					this.enabled = false;
 				}
-				this.enabled = false;
 			}
 		}
 	}

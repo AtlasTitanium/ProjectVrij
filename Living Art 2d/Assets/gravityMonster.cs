@@ -12,11 +12,23 @@ public class gravityMonster : MonoBehaviour {
 	public bool talkedToPlayer = false;
 	private float transparesy = 0.1f;
 	private bool howfast = false;
+	[HideInInspector]
+	public Animator anim;
+	public Sprite[] walkSprites;
+	public Sprite idleSprite;
+	public Sprite scaredSprite;
+	private bool waitForNextFrame = false;
+	private int i = -1;
 	void Start(){
 		blocked = true;
+		anim = GetComponent<Animator>();
+		this.GetComponent<SpriteRenderer>().sprite = scaredSprite;
+		//anim.SetBool("Scared",true);
+		//anim.SetBool("Movin",false);
 	}
 	void Update () {
 		if(blocked){
+			this.GetComponent<SpriteRenderer>().sprite = scaredSprite;
 			UnderText.text = "Help Me...";
 			if(transparesy > 0.5f){
 				return;
@@ -41,12 +53,27 @@ public class gravityMonster : MonoBehaviour {
 		}
 		if(talkedToPlayer){
 			if(GumObject == null){
+				this.GetComponent<SpriteRenderer>().sprite = idleSprite;
+				//anim.SetBool("Movin",false);
 				GumObject = GameObject.FindGameObjectWithTag("HoldingGum");
 			} else {
+				if(!waitForNextFrame){
+					i += 1;
+					if(i == walkSprites.Length){
+						i = 0;
+					}
+					this.GetComponent<SpriteRenderer>().sprite = walkSprites[i];
+					StartCoroutine(WaitMonster());
+					waitForNextFrame = true;
+				}
 				float step = speed * Time.deltaTime;
 				this.transform.position = Vector2.MoveTowards(this.transform.position, GumObject.transform.position, step);
 				this.transform.localPosition = new Vector3(this.transform.localPosition.x,this.transform.localPosition.y,1);
+				//anim.SetBool("Movin",true);
+				Debug.Log("following Gum");
 				if(GumObject.tag == "Gum"){
+					this.GetComponent<SpriteRenderer>().sprite = idleSprite;
+					//anim.SetBool("Movin",false);
 					GumObject = null;
 				}
 			}
@@ -55,6 +82,8 @@ public class gravityMonster : MonoBehaviour {
 
 	void OnTriggerExit2D(Collider2D other){
 		if(other.transform.tag == "Crate"){
+			this.GetComponent<SpriteRenderer>().sprite = idleSprite;
+			//anim.SetBool("Scared",false);
 			blocked = false;
 		}
 	}
@@ -64,5 +93,11 @@ public class gravityMonster : MonoBehaviour {
         howfast = true;
         yield return new WaitForSeconds(0.05f);
         howfast = false;
+    }
+
+	IEnumerator WaitMonster()
+    {
+        yield return new WaitForSeconds(0.4f);
+        waitForNextFrame = false;
     }
 }

@@ -11,6 +11,7 @@ TagManager:
   - HoldingGum
   - Monster
   - Rain
+  - PickUpPlace
   layers:
   - Default
   - TransparentFX
