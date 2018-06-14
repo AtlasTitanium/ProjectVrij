@@ -13,7 +13,7 @@ public class PlayerMotor : MonoBehaviour {
 	private bool Grounded;            // Whether or not the player is grounded.
 	private Transform CeilingCheck;   // A position marking where to check for ceilings
 	const float CeilingCheckRadius = .01f; // Radius of the overlap circle to determine if the player can stand up
-	public Animator PlayerAnimator;          // Reference to the player's animator component.
+	public Animator PlayerAnimator;         // Reference to the player's animator component.
 	private Rigidbody2D Rigidbody2D;
 	public bool FacingRight = true; // For determining which way the player is currently facing.
 	public GameObject Arm; 
@@ -83,6 +83,13 @@ public class PlayerMotor : MonoBehaviour {
 
 			// The Speed animator parameter is set to the absolute value of the horizontal input.
 			PlayerAnimator.SetFloat("Speed", Mathf.Abs(move));
+			if(move > 0.01f || move < -0.01f){
+				Arm.GetComponent<SpriteRenderer>().enabled = false;
+			} 
+			if(move < 0.01f && move > -0.01f){
+				Arm.GetComponent<SpriteRenderer>().enabled = true;
+			}
+			
 			// Move the character
 			Rigidbody2D.velocity = new Vector2(move*MaxSpeed, Rigidbody2D.velocity.y);
 			
