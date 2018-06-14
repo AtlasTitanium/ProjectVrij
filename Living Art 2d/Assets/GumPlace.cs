@@ -83,6 +83,7 @@ public class GumPlace : MonoBehaviour {
 		follow = true;
 		if(monster != null){
 			monster.GetComponent<gravityMonster>().talkedToPlayer = false;
+			monster.GetComponent<SpriteRenderer>().sprite = monster.GetComponent<gravityMonster>().idleSprite;
 		}
 		//monster = null;
     }

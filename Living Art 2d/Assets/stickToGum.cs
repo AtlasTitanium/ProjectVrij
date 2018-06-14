@@ -9,12 +9,14 @@ public class stickToGum : MonoBehaviour {
 	public PickupObject PickObj;
 	private bool onlyOnce = true;
 	private GameObject PickUpPlace;
+	public gravityMonster MonsterScript;
 	void Update(){
 		if(Gum != null){
 			if(Input.GetMouseButtonDown(0)){
 				//Debug.Log("sticktoGum");
 				this.transform.parent = Gum.transform;
-				
+				//MonsterScript.blocked = false;
+
 				this.transform.rotation = Gum.transform.rotation;
 				if(PickObj != null){
 					PickObj.Object.GetComponent<Collider2D>().isTrigger = true;

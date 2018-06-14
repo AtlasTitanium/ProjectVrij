@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 21200000}
   - component: {fileID: 6100000}
   - component: {fileID: 5000000}
+  - component: {fileID: 114969442259768658}
   m_Layer: 8
   m_Name: CratePink
-  m_TagString: Crate
+  m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,8 +26,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.82, y: 0.06, z: 0}
-  m_LocalScale: {x: 0.31505966, y: 0.31505954, z: 0.31505954}
+  m_LocalPosition: {x: 35.92, y: 7.21, z: 0}
+  m_LocalScale: {x: 0.3760248, y: 0.31505954, z: 0.31505954}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -132,3 +133,17 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
   m_IsPrefabParent: 1
+--- !u!114 &114969442259768658
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 179f7e3cae2f3904699d61d2448e8916, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Gum: {fileID: 0}
+  PickObj: {fileID: 0}
+  MonsterScript: {fileID: 0}

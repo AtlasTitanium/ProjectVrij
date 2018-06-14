@@ -41,6 +41,7 @@ public class gravityMonster : MonoBehaviour {
 			}
 			return;
 		} else {
+			Debug.Log("not Blocked");
 			if(transparesy == 0.0f){
 				howfast = true;
 			}
@@ -97,7 +98,7 @@ public class gravityMonster : MonoBehaviour {
 
 	IEnumerator WaitMonster()
     {
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.2f);
         waitForNextFrame = false;
     }
 }
