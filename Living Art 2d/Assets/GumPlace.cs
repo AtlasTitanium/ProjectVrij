@@ -9,7 +9,8 @@ public class GumPlace : MonoBehaviour {
 	public GameObject otherGumPlace;
 	public GameObject monster;
 	private bool follow = true;
-
+	public Sprite middlegumSprite;
+	public Sprite endgumSprite;
 	void Update () {
 		if(gum == null){
 			if(Input.GetKeyUp("r")){
@@ -31,6 +32,8 @@ public class GumPlace : MonoBehaviour {
 				if(Input.GetMouseButtonDown(0)){
 					//Debug.Log("Place gum");
 					gum.tag = "Gum";
+					gum.GetComponent<SpriteRenderer>().sprite = middlegumSprite;
+					StartCoroutine(NextGumSprite(gum));
 					gum.transform.parent = otherGumPlace.transform;
 					gum.transform.position = otherGumPlace.transform.position;
 					gum.transform.localPosition = new Vector3(gum.transform.localPosition.x,gum.transform.localPosition.y,-1);
@@ -86,5 +89,12 @@ public class GumPlace : MonoBehaviour {
 			monster.GetComponent<SpriteRenderer>().sprite = monster.GetComponent<gravityMonster>().idleSprite;
 		}
 		//monster = null;
+    }
+
+	IEnumerator NextGumSprite(GameObject gum)
+    {
+        yield return new WaitForSeconds(0.5f);
+		Debug.Log(gum);
+        gum.GetComponent<SpriteRenderer>().sprite = endgumSprite;
     }
 }
