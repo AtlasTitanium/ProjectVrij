@@ -12,6 +12,7 @@ TagManager:
   - Monster
   - Rain
   - PickUpPlace
+  - SpiderMonster
   layers:
   - Default
   - TransparentFX

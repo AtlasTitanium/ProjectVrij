@@ -5,10 +5,17 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	public PlayerMotor Character;
+	public GameObject TalkBar;
+	public GameObject menySystem;
     private bool jump;
+	//[HideInInspector]
+	public bool acitvitity = false;
 	
 	
-	private void Update(){
+	void Update(){
+		if(Input.GetKeyDown(KeyCode.Escape)){
+			Switch();
+		}
 		Debug.Log(jump);
 		if (!jump){
 			jump = Input.GetButtonDown("Jump");
@@ -21,5 +28,12 @@ public class PlayerController : MonoBehaviour {
 		float h = Input.GetAxis("Horizontal");
 		Character.Move(h, crouch, jump);
 		jump = false;
+	}
+
+	public void Switch(){
+		acitvitity = !acitvitity;
+		menySystem.SetActive(acitvitity);
+		TalkBar.SetActive(!acitvitity);
+		Character.enabled = !acitvitity;
 	}
 }

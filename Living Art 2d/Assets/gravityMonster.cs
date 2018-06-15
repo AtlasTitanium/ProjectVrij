@@ -81,10 +81,24 @@ public class gravityMonster : MonoBehaviour {
 		}
 	}
 
+	void OnTriggerEnter2D(Collider2D other){
+		if(other.tag == "SpiderMonster"){
+			Debug.Log("There's a monster");
+			other.GetComponent<SpiderMonster>().monster = this.transform.gameObject;
+			blocked = true;
+			talkedToPlayer = false;
+		}
+	}
+
 	void OnTriggerExit2D(Collider2D other){
-		if(other.transform.tag == "Crate"){
+		if(other.tag == "Crate"){
 			this.GetComponent<SpriteRenderer>().sprite = idleSprite;
 			//anim.SetBool("Scared",false);
+			blocked = false;
+		}
+		if(other.tag == "SpiderMonster"){
+			Debug.Log("There's a monster");
+			other.GetComponent<SpiderMonster>().monster = null;
 			blocked = false;
 		}
 	}
