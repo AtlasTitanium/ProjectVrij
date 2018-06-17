@@ -27,6 +27,7 @@ public class PlayerMotor : MonoBehaviour {
 	public Collider2D HeadCollider;
 	public float dist = 1.0f;
 	private bool fall = false;
+	private int Xbox_One_Controller = 0;
 	private void Awake(){
 		CheckIfGround = transform.Find("GroundCheck");
 		CeilingCheck = transform.Find("CeilingCheck");
@@ -35,27 +36,51 @@ public class PlayerMotor : MonoBehaviour {
 	}
 
 	void Update(){
-		float x = Input.GetAxis ("J_Horizontal");
-        float y = Input.GetAxis ("J_Vertical");
+		string[] names = Input.GetJoystickNames();
+		for (int f = 0; f < names.Length; f++)
+		{
+			if (names[f].Length == 33)
+			{
+				Debug.Log("XBOX ONE CONTROLLER IS CONNECTED");
+				Xbox_One_Controller = 1;
+
+			}
+		}
  
-         // CANCEL ALL INPUT BELOW THIS FLOAT
-        
  
-         // USED TO CHECK OUTPUT
-         Debug.Log(" horz: " + x + " vert: " + y);
- 
-         // CALCULATE ANGLE AND ROTATE
-         if (x != 0.0f || y != 0.0f) {
-				aim_angle = Mathf.Atan2 (y, -x) * Mathf.Rad2Deg;
-				// USED TO CHECK OUTPUT
-				Debug.Log ("angle: " + aim_angle);
-				if(FacingRight){
-					aim_angle += 90f;
-				} else {
-					aim_angle -= 90f;
-				}
-				Arm.transform.rotation = Quaternion.AngleAxis(aim_angle, Vector3.forward);
-         }
+		if(Xbox_One_Controller == 1){
+			float x = Input.GetAxis ("J_Horizontal");
+			float y = Input.GetAxis ("J_Vertical");
+	
+			// CANCEL ALL INPUT BELOW THIS FLOAT
+			
+	
+			// USED TO CHECK OUTPUT
+			Debug.Log(" horz: " + x + " vert: " + y);
+	
+			// CALCULATE ANGLE AND ROTATE
+			if (x != 0.0f || y != 0.0f) {
+					aim_angle = Mathf.Atan2 (y, -x) * Mathf.Rad2Deg;
+					// USED TO CHECK OUTPUT
+					Debug.Log ("angle: " + aim_angle);
+					if(FacingRight){
+						aim_angle += 90f;
+					} else {
+						aim_angle -= 90f;
+					}
+					Arm.transform.rotation = Quaternion.AngleAxis(aim_angle, Vector3.forward);
+			}//do something
+		} else {
+			dir = Input.mousePosition - Camera.main.WorldToScreenPoint(Arm.transform.position);
+
+			if(FacingRight){
+				angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+				Arm.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+			} else {
+				angle = Mathf.Atan2(dir.y, -dir.x) * Mathf.Rad2Deg;
+				Arm.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward * -1);
+			}
+		}
 		 /*
 		dir = Input.mousePosition - Camera.main.WorldToScreenPoint(Arm.transform.position);
 		/*
@@ -144,6 +169,27 @@ public class PlayerMotor : MonoBehaviour {
 			// Move the character
 			Rigidbody2D.velocity = new Vector2(move*MaxSpeed, Rigidbody2D.velocity.y);
 			
+			if(Xbox_One_Controller == 1){
+				//Debug.Log(Head.transform.rotation.z);
+				if (FacingRight && move > 0.1f){
+					//Debug.Log("Switch to Left");
+					Flip();
+				}
+				if (!FacingRight && move < -0.1f){
+					//Debug.Log("Switch to Right");
+					Flip();
+				}
+			} else {
+				if (FacingRight && Arm.transform.rotation.z < 0.7f && Arm.transform.rotation.z > -0.7f){
+					//Debug.Log("Switch to Left");
+					Flip();
+				}
+				if (!FacingRight && Arm.transform.rotation.z < 0.7f && Arm.transform.rotation.z > -0.7f){
+					//Debug.Log("Switch to Right");
+					Flip();
+				}
+			}
+			/*
 			//Debug.Log(Head.transform.rotation.z);
 			if (FacingRight && move > 0.1f){
 				//Debug.Log("Switch to Left");
@@ -153,7 +199,7 @@ public class PlayerMotor : MonoBehaviour {
 				//Debug.Log("Switch to Right");
 				Flip();
 			}
-			
+			*/
 		}
 		// If the player should jump...
 		if (Grounded && jump /*&& Animator.GetBool("Ground")*/){
