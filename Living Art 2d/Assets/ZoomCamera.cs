@@ -10,9 +10,10 @@ public class ZoomCamera : MonoBehaviour {
 	}
 	void Update () {
 		fadeImage.color = new Color(0,0,0,fadeTransperency);
-		fadeTransperency -= 0.4f * Time.deltaTime;
+		fadeTransperency -= 0.1f * Time.deltaTime;
 		if(fadeTransperency <= 0.05f){
 			fadeTransperency = 0;
+			this.transform.parent.gameObject.SetActive(false);
 			this.enabled = false;
 		}
 	}

@@ -24,10 +24,12 @@ public class PlayerController : MonoBehaviour {
 
 
 	private void FixedUpdate(){
-		float x = Input.GetAxis("Horizontal");
-		float y = Input.GetAxis("Vertical");
-		Character.Move(x, y, jump);
-		jump = false;
+		if(!acitvitity){
+			float x = Input.GetAxis("Horizontal");
+			float y = Input.GetAxis("Vertical");
+			Character.Move(x, y, jump);
+			jump = false;
+		}
 	}
 
 	public void Switch(){

@@ -24,6 +24,7 @@ public class PlayerMotor : MonoBehaviour {
 	private float movo;
 	public float aim_angle;
 	public Collider2D feetCollider;
+	public Collider2D HeadCollider;
 	public float dist = 1.0f;
 	private bool fall = false;
 	private void Awake(){
@@ -86,13 +87,19 @@ public class PlayerMotor : MonoBehaviour {
 		*/
 
 		RaycastHit2D hit = Physics2D.Raycast(CheckIfGround.transform.position, -Vector2.up, dist, GroundLayer + NoClipGroundLayer);
-		Debug.Log(hit.collider);
         if (hit.collider != null) {
             Grounded = true;
 			feetCollider.enabled = true;
         } else {
 			Grounded = false;
 			feetCollider.enabled = false;
+		}
+
+		RaycastHit2D hitUp = Physics2D.Raycast(CeilingCheck.transform.position, Vector2.up, dist, NoClipGroundLayer);
+        if (hitUp.collider != null) {
+			HeadCollider.enabled = true;
+        } else {
+			HeadCollider.enabled = false;
 		}
 	}
 	private void FixedUpdate(){

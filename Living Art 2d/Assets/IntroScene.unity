@@ -270,9 +270,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Texts:
   - Dit is een Test Area, Het doel is om het monster te helpen.
-  - press r to get gum, Monsters like gum.. press e to pick up some boxes.. not all...
-    click left mouse on monster if he likes gum... if you and monster are in a doorway,
-    press enter to enter the doorway.
+  - press B to get gum, Monsters like gum.. press X to pick up some boxes.. not all...
+    click A on monster if he likes gum... if you and monster are in a doorway, press
+    Left joystick Up to enter the doorway. press Y to jump and press left joystick
+    down to go down a platform
   TimeForText: 10
   TimeInBetween: 5
   transparencySpeed: 0.01

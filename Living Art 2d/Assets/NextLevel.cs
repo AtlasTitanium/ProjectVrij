@@ -10,7 +10,7 @@ public class NextLevel : MonoBehaviour {
 	void Update(){
 		if(monster != null && player != null){
 			Debug.Log("there's a player and Monster");
-			if(Input.GetKeyDown(KeyCode.Return)){
+			if(Input.GetAxis("Vertical") > 0.9f){
 				Application.LoadLevel(LevelInteger);
 			}
 		}
