@@ -27,7 +27,7 @@ public class PlayerMotor : MonoBehaviour {
 	public Collider2D HeadCollider;
 	public float dist = 1.0f;
 	private bool fall = false;
-	private int Xbox_One_Controller = 0;
+	public int Xbox_One_Controller = 0;
 	private void Awake(){
 		CheckIfGround = transform.Find("GroundCheck");
 		CeilingCheck = transform.Find("CeilingCheck");
@@ -39,11 +39,10 @@ public class PlayerMotor : MonoBehaviour {
 		string[] names = Input.GetJoystickNames();
 		for (int f = 0; f < names.Length; f++)
 		{
-			if (names[f].Length == 33)
+			if (names[f].Length >= 20)
 			{
 				Debug.Log("XBOX ONE CONTROLLER IS CONNECTED");
 				Xbox_One_Controller = 1;
-
 			}
 		}
  
