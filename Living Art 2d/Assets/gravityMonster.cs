@@ -20,7 +20,6 @@ public class gravityMonster : MonoBehaviour {
 	private bool waitForNextFrame = false;
 	private int i = -1;
 	void Start(){
-		blocked = true;
 		anim = GetComponent<Animator>();
 		this.GetComponent<SpriteRenderer>().sprite = scaredSprite;
 		//anim.SetBool("Scared",true);

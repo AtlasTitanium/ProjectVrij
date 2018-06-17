@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour {
 	
 	
 	void Update(){
-		if(Input.GetKeyDown(KeyCode.Escape)){
+		if(Input.GetButtonDown("Escape")){
 			Switch();
 		}
 		Debug.Log(jump);
@@ -24,9 +24,9 @@ public class PlayerController : MonoBehaviour {
 
 
 	private void FixedUpdate(){
-		bool crouch = Input.GetKey(KeyCode.LeftControl);
-		float h = Input.GetAxis("Horizontal");
-		Character.Move(h, crouch, jump);
+		float x = Input.GetAxis("Horizontal");
+		float y = Input.GetAxis("Vertical");
+		Character.Move(x, y, jump);
 		jump = false;
 	}
 

@@ -6,11 +6,12 @@ public class PlayerMotor : MonoBehaviour {
 	public float MaxSpeed = 10f;                    // The fastest the player can travel in the x axis.
 	public float JumpSpeed = 400f;                  // Amount of force added when the player jumps.
 	public bool moveInAir = false;                 // Whether or not a player can steer while jumping;
-	public LayerMask GroundLayer;                  // A mask determining what is ground to the character
+	public LayerMask GroundLayer;   
+	public LayerMask NoClipGroundLayer;                // A mask determining what is ground to the character
 
 	private Transform CheckIfGround;    // A position marking where to check if the player is grounded.
 	const float CheckIfGroundRadius = .2f; // Radius of the overlap circle to determine if grounded
-	private bool Grounded;            // Whether or not the player is grounded.
+	public bool Grounded;            // Whether or not the player is grounded.
 	private Transform CeilingCheck;   // A position marking where to check for ceilings
 	const float CeilingCheckRadius = .01f; // Radius of the overlap circle to determine if the player can stand up
 	public Animator PlayerAnimator;         // Reference to the player's animator component.
@@ -21,7 +22,10 @@ public class PlayerMotor : MonoBehaviour {
 	private Vector3 dir;
 	private Vector3 theScale;
 	private float movo;
-
+	public float aim_angle;
+	public Collider2D feetCollider;
+	public float dist = 1.0f;
+	private bool fall = false;
 	private void Awake(){
 		CheckIfGround = transform.Find("GroundCheck");
 		CeilingCheck = transform.Find("CeilingCheck");
@@ -30,6 +34,28 @@ public class PlayerMotor : MonoBehaviour {
 	}
 
 	void Update(){
+		float x = Input.GetAxis ("J_Horizontal");
+        float y = Input.GetAxis ("J_Vertical");
+ 
+         // CANCEL ALL INPUT BELOW THIS FLOAT
+        
+ 
+         // USED TO CHECK OUTPUT
+         Debug.Log(" horz: " + x + " vert: " + y);
+ 
+         // CALCULATE ANGLE AND ROTATE
+         if (x != 0.0f || y != 0.0f) {
+				aim_angle = Mathf.Atan2 (y, -x) * Mathf.Rad2Deg;
+				// USED TO CHECK OUTPUT
+				Debug.Log ("angle: " + aim_angle);
+				if(FacingRight){
+					aim_angle += 90f;
+				} else {
+					aim_angle -= 90f;
+				}
+				Arm.transform.rotation = Quaternion.AngleAxis(aim_angle, Vector3.forward);
+         }
+		 /*
 		dir = Input.mousePosition - Camera.main.WorldToScreenPoint(Arm.transform.position);
 		/*
 		if(movo < 0.01f && movo > -0.01f){
@@ -48,20 +74,29 @@ public class PlayerMotor : MonoBehaviour {
 			angles.z = -180;
 			Head.transform.rotation = Quaternion.Euler(angles);
 		}
-		*/
+		
 
 		if(FacingRight){
 			angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-			Arm.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+			
 		} else {
 			angle = Mathf.Atan2(dir.y, -dir.x) * Mathf.Rad2Deg;
-			Arm.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward * -1);
+			Arm.transform.rotation = Quaternion.AngleAxis(aim_angle, Vector3.forward * -1);
 		}
-		
+		*/
+
+		RaycastHit2D hit = Physics2D.Raycast(CheckIfGround.transform.position, -Vector2.up, dist, GroundLayer + NoClipGroundLayer);
+		Debug.Log(hit.collider);
+        if (hit.collider != null) {
+            Grounded = true;
+			feetCollider.enabled = true;
+        } else {
+			Grounded = false;
+			feetCollider.enabled = false;
+		}
 	}
 	private void FixedUpdate(){
-		Grounded = false;
-
+		/*
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(CheckIfGround.position, CheckIfGroundRadius, GroundLayer);
 		for (int i = 0; i < colliders.Length; i++){
 			if (colliders[i].gameObject != gameObject)
@@ -72,14 +107,23 @@ public class PlayerMotor : MonoBehaviour {
 
 		// Set the vertical animation
 		//Animator.SetFloat("vSpeed", Rigidbody2D.velocity.y);
+		*/
 	}
 
 
-	public void Move(float move, bool crouch, bool jump){
+	public void Move(float move, float height, bool jump){
 		movo = move;
 		//only control the player if grounded or airControl is turned on
 		if (Grounded || moveInAir){
 			// Reduce the speed if crouching by the crouchSpeed multiplier
+			RaycastHit2D hit = Physics2D.Raycast(CheckIfGround.transform.position, -Vector2.up, dist, GroundLayer);
+			if (hit.collider != null) {
+				if(feetCollider.enabled == true){
+					if(height < -0.9f){
+						StartCoroutine(Vall(0.4f));
+					}
+				}
+			}
 
 			// The Speed animator parameter is set to the absolute value of the horizontal input.
 			PlayerAnimator.SetFloat("Speed", Mathf.Abs(move));
@@ -94,14 +138,15 @@ public class PlayerMotor : MonoBehaviour {
 			Rigidbody2D.velocity = new Vector2(move*MaxSpeed, Rigidbody2D.velocity.y);
 			
 			//Debug.Log(Head.transform.rotation.z);
-			if (FacingRight && Arm.transform.rotation.z < 0.7f && Arm.transform.rotation.z > -0.7f){
+			if (FacingRight && move > 0.1f){
 				//Debug.Log("Switch to Left");
 				Flip();
 			}
-			if (!FacingRight && Arm.transform.rotation.z < 0.7f && Arm.transform.rotation.z > -0.7f){
+			if (!FacingRight && move < -0.1f){
 				//Debug.Log("Switch to Right");
 				Flip();
 			}
+			
 		}
 		// If the player should jump...
 		if (Grounded && jump /*&& Animator.GetBool("Ground")*/){
@@ -122,4 +167,10 @@ public class PlayerMotor : MonoBehaviour {
 		transform.localScale = theScale;
 		Arm.transform.rotation = Quaternion.AngleAxis(180, Vector3.forward);
 	}
+
+	IEnumerator Vall(float TimeForText){
+		feetCollider.enabled = false;
+        yield return new WaitForSeconds(TimeForText);
+		feetCollider.enabled = true;
+    }
 }

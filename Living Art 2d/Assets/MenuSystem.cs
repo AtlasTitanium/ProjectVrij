@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class MenuSystem : MonoBehaviour {
 	public Canvas MenuCanvas;
 	public Button Return, Help, Quit;
+	public int MainMenuInteger;
 
 	void Start () {
 		Button ReturnBtn = Return.GetComponent<Button>();
@@ -25,6 +26,6 @@ public class MenuSystem : MonoBehaviour {
 	}
 
 	void QuitClick() {
-		
+		Application.LoadLevel(MainMenuInteger);
 	}
 }

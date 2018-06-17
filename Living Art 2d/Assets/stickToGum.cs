@@ -12,7 +12,7 @@ public class stickToGum : MonoBehaviour {
 	public gravityMonster MonsterScript;
 	void Update(){
 		if(Gum != null){
-			if(Input.GetMouseButtonDown(0)){
+			if(Input.GetButtonDown("Fire3")){
 				//Debug.Log("sticktoGum");
 				this.transform.parent = Gum.transform;
 				//MonsterScript.blocked = false;

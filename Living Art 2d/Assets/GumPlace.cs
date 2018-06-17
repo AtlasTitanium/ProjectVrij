@@ -13,7 +13,7 @@ public class GumPlace : MonoBehaviour {
 	public Sprite endgumSprite;
 	void Update () {
 		if(gum == null){
-			if(Input.GetKeyUp("r")){
+			if(Input.GetButtonDown("Fire2")){
 				gum = Instantiate(gumPrefab, this.transform.position, this.transform.rotation);
 				gum.transform.parent = this.transform;
 			} 
@@ -21,7 +21,7 @@ public class GumPlace : MonoBehaviour {
 			if(follow){
 				gum.transform.position = this.transform.position;
 			}
-			if(Input.GetKeyDown("r")){
+			if(Input.GetButtonDown("Fire2")){
 				gum.transform.parent = null;
 				gum.GetComponent<Rigidbody2D>().gravityScale = 1;
 				gum.GetComponent<Collider2D>().isTrigger = false;
@@ -29,7 +29,7 @@ public class GumPlace : MonoBehaviour {
 				StartCoroutine(WaitForGum());
 			} 
 			if(otherGumPlace != null){
-				if(Input.GetMouseButtonDown(0)){
+				if(Input.GetButtonDown("Fire3")){
 					//Debug.Log("Place gum");
 					gum.tag = "Gum";
 					gum.GetComponent<SpriteRenderer>().sprite = middlegumSprite;
@@ -45,7 +45,7 @@ public class GumPlace : MonoBehaviour {
 				}
 			}
 			if(monster != null){
-				if(Input.GetMouseButtonDown(0)){
+				if(Input.GetButtonDown("Fire3")){
 					//Debug.Log("Place gum");
 					monster.GetComponent<gravityMonster>().talkedToPlayer = true;
 				}

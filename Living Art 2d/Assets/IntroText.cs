@@ -55,9 +55,9 @@ public class IntroText : MonoBehaviour {
 		} else {
 			fadeImage.color = new Color(0,0,0,fadeTransperency);
 			fadeTransperency += 0.4f * Time.deltaTime;
-			if(fadeTransperency >= 0.95){
-				fadeTransperency = 0;
-				Application.LoadLevel(1);
+			if(fadeTransperency >= 0.99){
+				fadeTransperency = 1;
+				Application.LoadLevel(2);
 			}
 		}
 	}

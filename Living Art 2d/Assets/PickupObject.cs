@@ -9,7 +9,7 @@ public class PickupObject : MonoBehaviour {
 	void Update(){
 		if(Object != null){
 			if(!picked){
-				if(Input.GetKeyDown("e")){
+				if(Input.GetButtonDown("Fire1")){
 					//Debug.Log("pickup");
 					Object.GetComponent<stickToGum>().enabled = true;
 					Object.transform.parent = this.transform;
@@ -21,7 +21,7 @@ public class PickupObject : MonoBehaviour {
 				}
 			} else {
 				Object.transform.position = transform.position;
-				if(Input.GetKeyDown("e")){
+				if(Input.GetButtonDown("Fire1")){
 					//Debug.Log("drop");
 					Object.transform.parent = null;
 					Object.GetComponent<Rigidbody2D>().gravityScale = 3;
