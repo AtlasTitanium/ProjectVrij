@@ -29,6 +29,8 @@ public class gravityMonster : MonoBehaviour {
 		if(blocked){
 			GumObject = null;
 			this.GetComponent<SpriteRenderer>().sprite = scaredSprite;
+			this.GetComponent<BoxCollider2D>().offset = new Vector2(-3.85f,0.15f);
+			this.GetComponent<BoxCollider2D>().size = new Vector2(8,2.5f);
 			UnderText.text = "Help Me...";
 			if(transparesy > 0.5f){
 				return;
@@ -55,6 +57,8 @@ public class gravityMonster : MonoBehaviour {
 		if(talkedToPlayer){
 			if(GumObject == null){
 				this.GetComponent<SpriteRenderer>().sprite = idleSprite;
+				this.GetComponent<BoxCollider2D>().offset = new Vector2(-0.2f,1.8f);
+				this.GetComponent<BoxCollider2D>().size = new Vector2(4.15f,5.65f);
 				//anim.SetBool("Movin",false);
 				GumObject = GameObject.FindGameObjectWithTag("HoldingGum");
 				StartCoroutine(WaitForOff());
@@ -65,6 +69,8 @@ public class gravityMonster : MonoBehaviour {
 						i = 0;
 					}
 					this.GetComponent<SpriteRenderer>().sprite = walkSprites[i];
+					this.GetComponent<BoxCollider2D>().offset = new Vector2(-3.85f,-0.7f);
+					this.GetComponent<BoxCollider2D>().size = new Vector2(8,3.22f);
 					StartCoroutine(WaitMonster());
 					waitForNextFrame = true;
 				}

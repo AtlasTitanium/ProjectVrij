@@ -77,6 +77,7 @@ public class MonsterBaby : MonoBehaviour {
         this.transform.parent = parent.transform;
 		this.transform.localPosition = new Vector3(-2f,0.9f,-0.3f);
 		this.GetComponent<SpriteRenderer>().flipX = enabled;
+		this.transform.gameObject.layer = 0;
 		this.enabled = false;
     }
 	IEnumerator WaitForOff()

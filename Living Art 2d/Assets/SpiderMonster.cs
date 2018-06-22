@@ -39,8 +39,6 @@ public class SpiderMonster : MonoBehaviour {
 			return;
 		}
 		if(monster != null){
-			monster.GetComponent<gravityMonster>().blocked = true;
-			monster.GetComponent<gravityMonster>().talkedToPlayer = false;
 			float stepo = speed * Time.deltaTime;
 			this.transform.position = Vector2.MoveTowards(this.transform.position, monster.transform.position, stepo);
 			this.transform.localPosition = new Vector3(this.transform.localPosition.x,this.transform.localPosition.y,1);
@@ -48,18 +46,11 @@ public class SpiderMonster : MonoBehaviour {
 		}
 	}
 
-	/*
+	
 	void OnTriggerEnter2D(Collider2D other){
-		if(other.tag == "HoldingGum"){
-			Debug.Log("There's gum");
-			GumObject = other.transform.gameObject;
+		if(other.tag == "Monster"){
+			Application.LoadLevel(4);
 		}
 	}
-
-	void OnTriggerExit2D(Collider2D other){
-		if(other.tag == "HoldingGum"){
-			GumObject = null;
-		}
-	}
-	*/
+	
 }
