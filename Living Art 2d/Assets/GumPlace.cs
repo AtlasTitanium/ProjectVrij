@@ -8,6 +8,7 @@ public class GumPlace : MonoBehaviour {
 	private Color originalColor;
 	public GameObject otherGumPlace;
 	public GameObject monster;
+	public GameObject Babymonster;
 	private bool follow = true;
 	public Sprite middlegumSprite;
 	public Sprite endgumSprite;
@@ -50,6 +51,12 @@ public class GumPlace : MonoBehaviour {
 					monster.GetComponent<gravityMonster>().talkedToPlayer = true;
 				}
 			}
+			if(Babymonster != null){
+				if(Input.GetButtonDown("Fire3")){
+					//Debug.Log("Place gum");
+					Babymonster.GetComponent<MonsterBaby>().talkedToPlayer = true;
+				}
+			}
 		}
 	}
 
@@ -62,7 +69,12 @@ public class GumPlace : MonoBehaviour {
 			}
 		}
 		if(other.transform.tag == "Monster"){
+			Debug.Log("There's a monster");
 			monster = other.gameObject;
+		}
+		if(other.transform.tag == "MonsterBaby"){
+			Debug.Log("There's a baby monster");
+			Babymonster = other.gameObject;
 		}
 	}
 
@@ -72,6 +84,12 @@ public class GumPlace : MonoBehaviour {
 			otherGumPlace = null;
 		}
 		if(other.transform.tag == "Monster"){
+			if(monster != null){
+				//monster.GetComponent<gravityMonster>().talkedToPlayer = false;
+				monster = null;
+			}
+		}
+		if(other.transform.tag == "MonsterBaby"){
 			if(monster != null){
 				//monster.GetComponent<gravityMonster>().talkedToPlayer = false;
 				monster = null;

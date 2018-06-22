@@ -10,6 +10,12 @@ public class PickupObject : MonoBehaviour {
 		if(Object != null){
 			if(!picked){
 				if(Input.GetButtonDown("Fire1")){
+					if(Object.transform.parent != null){
+						if(Object.transform.parent.tag == "UsedGum"){
+							Object.transform.parent.tag = "Gum";
+							Object.transform.parent.gameObject.layer = 11;
+						}
+					}
 					//Debug.Log("pickup");
 					Object.GetComponent<stickToGum>().enabled = true;
 					Object.transform.parent = this.transform;

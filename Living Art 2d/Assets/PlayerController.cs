@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour {
 		if(Input.GetButtonDown("Escape")){
 			Switch();
 		}
-		Debug.Log(jump);
+		//Debug.Log(jump);
 		if (!jump){
 			jump = Input.GetButtonDown("Jump");
 		}

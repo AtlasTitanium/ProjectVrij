@@ -4,20 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class MonsterBaby : MonoBehaviour {
-
-	public Image ShadowText;
-	public Text UnderText;
 	public bool blocked = false;
 	public GameObject GumObject;
 	public float speed;
 	public bool talkedToPlayer = false;
-	private float transparesy = 0.1f;
-	private bool howfast = false;
-
 	public Sprite[] idleSprites;
-
 	private bool waitForNextFrame = false;
 	private int i = -1;
+	private GameObject parent;
 
 	void Update () {
 		if(!waitForNextFrame){
@@ -27,13 +21,14 @@ public class MonsterBaby : MonoBehaviour {
 			}
 			this.GetComponent<SpriteRenderer>().sprite = idleSprites[i];
 			StartCoroutine(WaitMonster());
-			Debug.Log("SpriteChange");
+			//Debug.Log("SpriteChange");
 			waitForNextFrame = true;
 		}
 		if(talkedToPlayer){
 			if(GumObject == null){
 				//anim.SetBool("Movin",false);
 				GumObject = GameObject.FindGameObjectWithTag("HoldingGum");
+				StartCoroutine(WaitForOff());
 			} else {
 				float step = speed * Time.deltaTime;
 				this.transform.position = Vector2.MoveTowards(this.transform.position, GumObject.transform.position, step);
@@ -43,6 +38,7 @@ public class MonsterBaby : MonoBehaviour {
 				if(GumObject.tag == "Gum"){
 					//anim.SetBool("Movin",false);
 					GumObject = null;
+					talkedToPlayer = false;
 				}
 			}
 		}
@@ -54,6 +50,10 @@ public class MonsterBaby : MonoBehaviour {
 			other.GetComponent<SpiderMonster>().monster = this.transform.gameObject;
 			blocked = true;
 			talkedToPlayer = false;
+		}
+		if(other.tag == "Monster"){
+			parent = other.gameObject;
+			StartCoroutine(WaitForMonster());
 		}
 	}
 
@@ -69,5 +69,21 @@ public class MonsterBaby : MonoBehaviour {
     {
         yield return new WaitForSeconds(0.4f);
         waitForNextFrame = false;
+    }
+
+	IEnumerator WaitForMonster()
+    {
+        yield return new WaitForSeconds(2f);
+        this.transform.parent = parent.transform;
+		this.transform.localPosition = new Vector3(-2f,0.9f,-0.3f);
+		this.GetComponent<SpriteRenderer>().flipX = enabled;
+		this.enabled = false;
+    }
+	IEnumerator WaitForOff()
+    {
+        yield return new WaitForSeconds(0.5f);
+		if(GumObject == null){
+        	talkedToPlayer = false;
+		}
     }
 }

@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+public class EndCredits : MonoBehaviour {
+	public GameObject rolingCredits;
 
-public class IntroText : MonoBehaviour {
 	public string[] Texts;
 	public float TimeForText;
 	public float TimeInBetween;
@@ -14,10 +15,13 @@ public class IntroText : MonoBehaviour {
 	private bool FadeIn = true;
 	private bool FadeOut = false;
 	private int i = 0;
-	private float fadeTransperency = 0.0f;
-	public Image fadeImage;
+	public float fadeTransperency = 0.0f;
+	public GameObject fadeImage;
+	private float height;
+	public float creditsSpeed = 0.5f;
 	// Use this for initialization
 	void Start () {
+		height = rolingCredits.transform.position.y;
 		TextObject = this.GetComponentInChildren<Text>();
 		this.GetComponent<Image>().color = new Color(this.GetComponent<Image>().color.r,this.GetComponent<Image>().color.g,this.GetComponent<Image>().color.b,transparency);
 	}
@@ -55,9 +59,14 @@ public class IntroText : MonoBehaviour {
 				}
 			}
 		} else {
-			fadeImage.GetComponent<FadeInImage>().FadeOut();
 			if(fadeImage.GetComponent<FadeInImage>().transperency >= 0.99){
-				Application.LoadLevel(2);
+				rolingCredits.transform.position = new Vector2(rolingCredits.transform.position.x, height);
+				height += creditsSpeed;
+				if(height >= 800){
+					StartCoroutine(Ending());
+				}
+			} else {
+				fadeImage.GetComponent<FadeInImage>().FadeOut();
 			}
 		}
 	}
@@ -78,5 +87,10 @@ public class IntroText : MonoBehaviour {
         yield return new WaitForSeconds(TimeInBetween);
 		Debug.Log("ChangeFade");
 		FadeIn = true;
+    }
+
+	IEnumerator Ending(){
+        yield return new WaitForSeconds(2);
+		Application.LoadLevel(0);
     }
 }

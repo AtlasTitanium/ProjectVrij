@@ -13,6 +13,8 @@ public class stickToGum : MonoBehaviour {
 	void Update(){
 		if(Gum != null){
 			if(Input.GetButtonDown("Fire3")){
+				Gum.tag = "UsedGum";
+				Gum.layer = 0;
 				//Debug.Log("sticktoGum");
 				this.transform.parent = Gum.transform;
 				//MonsterScript.blocked = false;
@@ -22,7 +24,7 @@ public class stickToGum : MonoBehaviour {
 					PickObj.Object.GetComponent<Collider2D>().isTrigger = true;
 					PickObj.Object = null;
 					PickObj.picked = false;	
-					this.enabled = false;
+					//this.enabled = false;
 				}
 			}
 		}

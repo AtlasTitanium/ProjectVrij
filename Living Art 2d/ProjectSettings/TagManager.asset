@@ -14,6 +14,7 @@ TagManager:
   - PickUpPlace
   - SpiderMonster
   - MonsterBaby
+  - UsedGum
   layers:
   - Default
   - TransparentFX
@@ -26,7 +27,7 @@ TagManager:
   - Ground
   - Monster
   - noClipGround
-  - 
+  - Gum
   - 
   - 
   - 

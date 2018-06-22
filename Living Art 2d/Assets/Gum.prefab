@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212921970737153508}
   - component: {fileID: 58429209695881204}
   - component: {fileID: 50759667973266886}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Gum
   m_TagString: HoldingGum
   m_Icon: {fileID: 0}

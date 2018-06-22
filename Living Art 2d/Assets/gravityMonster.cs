@@ -27,6 +27,7 @@ public class gravityMonster : MonoBehaviour {
 	}
 	void Update () {
 		if(blocked){
+			GumObject = null;
 			this.GetComponent<SpriteRenderer>().sprite = scaredSprite;
 			UnderText.text = "Help Me...";
 			if(transparesy > 0.5f){
@@ -40,7 +41,7 @@ public class gravityMonster : MonoBehaviour {
 			}
 			return;
 		} else {
-			Debug.Log("not Blocked");
+			//Debug.Log("not Blocked");
 			if(transparesy == 0.0f){
 				howfast = true;
 			}
@@ -56,6 +57,7 @@ public class gravityMonster : MonoBehaviour {
 				this.GetComponent<SpriteRenderer>().sprite = idleSprite;
 				//anim.SetBool("Movin",false);
 				GumObject = GameObject.FindGameObjectWithTag("HoldingGum");
+				StartCoroutine(WaitForOff());
 			} else {
 				if(!waitForNextFrame){
 					i += 1;
@@ -74,12 +76,13 @@ public class gravityMonster : MonoBehaviour {
 				if(GumObject.tag == "Gum"){
 					this.GetComponent<SpriteRenderer>().sprite = idleSprite;
 					//anim.SetBool("Movin",false);
-					GumObject = null;
+					//GumObject = null;
 				}
 			}
 		}
 	}
 
+	/*
 	void OnTriggerEnter2D(Collider2D other){
 		if(other.tag == "SpiderMonster"){
 			Debug.Log("There's a monster");
@@ -101,6 +104,15 @@ public class gravityMonster : MonoBehaviour {
 			blocked = false;
 		}
 	}
+	*/
+
+	void OnTriggerExit2D(Collider2D other){
+		if(other.tag == "Crate"){
+			this.GetComponent<SpriteRenderer>().sprite = idleSprite;
+			//anim.SetBool("Scared",false);
+			blocked = false;
+		}
+	}
 
 	IEnumerator Fast()
     {
@@ -113,5 +125,12 @@ public class gravityMonster : MonoBehaviour {
     {
         yield return new WaitForSeconds(0.2f);
         waitForNextFrame = false;
+    }
+	IEnumerator WaitForOff()
+    {
+        yield return new WaitForSeconds(0.5f);
+       	if(GumObject == null){
+        	talkedToPlayer = false;
+		}
     }
 }

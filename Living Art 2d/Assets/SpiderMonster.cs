@@ -9,8 +9,25 @@ public class SpiderMonster : MonoBehaviour {
 	private float transparesy = 0.1f;
 	private bool howfast = false;
 	private bool waitForNextFrame = false;
+	private FieldOfVieuw fow;
+
+	void Start(){
+		fow = GetComponent<FieldOfVieuw>();
+	}
 
 	void Update () {
+		for(int i = 0; i < fow.visibleTargets.Count; i++){
+			if(fow.visibleTargets[i].tag == "Monster"){
+				monster = fow.visibleTargets[i].gameObject;
+			}
+			if(fow.visibleTargets[i].tag == "Gum"){
+				GumObject = fow.visibleTargets[i].gameObject;
+			}
+		}
+		if(fow.visibleTargets.Count == 0){
+			GumObject = null;
+			monster = null;
+		}
 		if(GumObject != null){
 			float step = speed * Time.deltaTime;
 			this.transform.position = Vector2.MoveTowards(this.transform.position, GumObject.transform.position, step);
@@ -22,6 +39,8 @@ public class SpiderMonster : MonoBehaviour {
 			return;
 		}
 		if(monster != null){
+			monster.GetComponent<gravityMonster>().blocked = true;
+			monster.GetComponent<gravityMonster>().talkedToPlayer = false;
 			float stepo = speed * Time.deltaTime;
 			this.transform.position = Vector2.MoveTowards(this.transform.position, monster.transform.position, stepo);
 			this.transform.localPosition = new Vector3(this.transform.localPosition.x,this.transform.localPosition.y,1);
@@ -29,6 +48,7 @@ public class SpiderMonster : MonoBehaviour {
 		}
 	}
 
+	/*
 	void OnTriggerEnter2D(Collider2D other){
 		if(other.tag == "HoldingGum"){
 			Debug.Log("There's gum");
@@ -41,4 +61,5 @@ public class SpiderMonster : MonoBehaviour {
 			GumObject = null;
 		}
 	}
+	*/
 }
