@@ -10,6 +10,9 @@ public class SpiderMonster : MonoBehaviour {
 	private bool howfast = false;
 	private bool waitForNextFrame = false;
 	private FieldOfVieuw fow;
+	public Sprite[] walkSprites;
+	public Sprite idleSprite;
+	private int i = 0;
 
 	void Start(){
 		fow = GetComponent<FieldOfVieuw>();
@@ -29,6 +32,15 @@ public class SpiderMonster : MonoBehaviour {
 			monster = null;
 		}
 		if(GumObject != null){
+			if(!waitForNextFrame){
+				i += 1;
+				if(i == walkSprites.Length){
+					i = 0;
+				}
+				this.GetComponent<SpriteRenderer>().sprite = walkSprites[i];
+				StartCoroutine(WaitMonster());
+				waitForNextFrame = true;
+			}
 			float step = speed * Time.deltaTime;
 			this.transform.position = Vector2.MoveTowards(this.transform.position, GumObject.transform.position, step);
 			this.transform.localPosition = new Vector3(this.transform.localPosition.x,this.transform.localPosition.y,1);
@@ -39,6 +51,15 @@ public class SpiderMonster : MonoBehaviour {
 			return;
 		}
 		if(monster != null){
+			if(!waitForNextFrame){
+				i += 1;
+				if(i == walkSprites.Length){
+					i = 0;
+				}
+				this.GetComponent<SpriteRenderer>().sprite = walkSprites[i];
+				StartCoroutine(WaitMonster());
+				waitForNextFrame = true;
+			}
 			float stepo = speed * Time.deltaTime;
 			this.transform.position = Vector2.MoveTowards(this.transform.position, monster.transform.position, stepo);
 			this.transform.localPosition = new Vector3(this.transform.localPosition.x,this.transform.localPosition.y,1);
@@ -52,5 +73,11 @@ public class SpiderMonster : MonoBehaviour {
 			Application.LoadLevel(4);
 		}
 	}
+
+	IEnumerator WaitMonster()
+    {
+        yield return new WaitForSeconds(0.2f);
+        waitForNextFrame = false;
+    }
 	
 }

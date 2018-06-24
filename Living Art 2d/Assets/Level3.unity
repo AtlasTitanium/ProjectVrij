@@ -13578,8 +13578,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7442b5dc4d733e149a0e031bdf85c1ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShadowText: {fileID: 1129053468}
-  UnderText: {fileID: 1459160537}
   blocked: 0
   GumObject: {fileID: 0}
   speed: 2
@@ -14290,6 +14288,12 @@ MonoBehaviour:
   GumObject: {fileID: 0}
   monster: {fileID: 0}
   speed: 2
+  walkSprites:
+  - {fileID: 21300000, guid: 10ec876b1965837429254262deaedd75, type: 3}
+  - {fileID: 21300002, guid: 10ec876b1965837429254262deaedd75, type: 3}
+  - {fileID: 21300004, guid: 10ec876b1965837429254262deaedd75, type: 3}
+  - {fileID: 21300006, guid: 10ec876b1965837429254262deaedd75, type: 3}
+  idleSprite: {fileID: 21300000, guid: 48f5b6d6deae102469d994ad1f6d1d64, type: 3}
 --- !u!61 &1755167099
 BoxCollider2D:
   m_ObjectHideFlags: 0
