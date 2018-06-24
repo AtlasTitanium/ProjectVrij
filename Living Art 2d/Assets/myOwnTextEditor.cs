@@ -7,8 +7,9 @@ public class myOwnTextEditor : MonoBehaviour {
 	public Image TextObjectImage;
 	public Text TextObject;
 	public string WhatToSay;
-	private float transperency = 0.0f;
-	private bool fadein = false;
+	public float transperency = 0.0f;
+	public bool fadein = false;
+	public bool fadeout = false;
 
 	void Update(){
 		//Debug.Log(transperency);
@@ -17,18 +18,21 @@ public class myOwnTextEditor : MonoBehaviour {
 				transperency = 0.5f;
 				TextObject.color = new Color(TextObject.color.r,TextObject.color.g,TextObject.color.b,transperency*2);
 				TextObjectImage.color = new Color(TextObjectImage.color.r,TextObjectImage.color.g,TextObjectImage.color.b,transperency);
+				fadein = false;
 				return;
 			}
 			TextObject.color = new Color(TextObject.color.r,TextObject.color.g,TextObject.color.b,transperency*2);
 			TextObjectImage.color = new Color(TextObjectImage.color.r,TextObjectImage.color.g,TextObjectImage.color.b,transperency);
 			transperency += 0.025f;
-		} else {
+		}
+		if(fadeout){
 			if(transperency <= 0.0f){
 				transperency = 0.0f;
 				TextObject.color = new Color(TextObject.color.r,TextObject.color.g,TextObject.color.b,transperency*2);
 				TextObjectImage.color = new Color(TextObjectImage.color.r,TextObjectImage.color.g,TextObjectImage.color.b,transperency);
 				TextObject.gameObject.SetActive(false);
 				TextObjectImage.gameObject.SetActive(false);
+				fadeout = false;
 				return;
 			}
 			TextObject.color = new Color(TextObject.color.r,TextObject.color.g,TextObject.color.b,transperency*2);
@@ -47,7 +51,7 @@ public class myOwnTextEditor : MonoBehaviour {
 
 	void OnTriggerExit2D(Collider2D other){
 		if(other.tag == "Player"){
-			fadein = false;
+			fadeout = true;
 		}
 	}
 }
