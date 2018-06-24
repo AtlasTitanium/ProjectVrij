@@ -23,7 +23,7 @@ public class MenuSystem : MonoBehaviour {
 
 	void Update(){
 		if(helpCanvas){
-			if(Input.GetButtonUp("Fire3")){
+			if(Input.GetButtonDown("Escape")){
 				Return.gameObject.SetActive(true);
 				Help.gameObject.SetActive(true);
 				Quit.gameObject.SetActive(true);

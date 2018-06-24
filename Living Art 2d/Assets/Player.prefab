@@ -103,7 +103,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1425895944823414
 GameObject:
   m_ObjectHideFlags: 1
@@ -420,7 +420,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1085915759287034}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.5, y: 3.39, z: -10}
+  m_LocalPosition: {x: -17.1, y: 1.0966, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3133656, z: 1}
   m_Children:
   - {fileID: 4107003308335022}
@@ -916,7 +916,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1085915759287034}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a5ee7b3d7cfc2554087bad88bd1fadac, type: 3}
   m_Name: 
@@ -938,6 +938,7 @@ MonoBehaviour:
   feetCollider: {fileID: 58738807548687902}
   HeadCollider: {fileID: 61329554831847160}
   dist: 0.2
+  Xbox_One_Controller: 0
 --- !u!114 &114570080946279298
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1059,6 +1060,7 @@ MonoBehaviour:
   gum: {fileID: 0}
   otherGumPlace: {fileID: 0}
   monster: {fileID: 0}
+  Babymonster: {fileID: 0}
   middlegumSprite: {fileID: 21300002, guid: 0e50fb5110a79734392256280ee4c1cf, type: 3}
   endgumSprite: {fileID: 21300004, guid: 0e50fb5110a79734392256280ee4c1cf, type: 3}
 --- !u!114 &114823654143722184
@@ -1113,7 +1115,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1085915759287034}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4940b798f4aca6142af40090aba8938f, type: 3}
   m_Name: 
@@ -1549,7 +1551,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3.5999756, y: 549}
+  m_AnchoredPosition: {x: 3.5999756, y: -96.65}
   m_SizeDelta: {x: -223.59985, y: 161.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224486643396626898
@@ -1623,7 +1625,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 544.6001}
+  m_AnchoredPosition: {x: 0, y: -96.65}
   m_SizeDelta: {x: -700, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224637442334834082

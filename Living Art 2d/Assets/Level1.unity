@@ -240,11 +240,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 18fcd494ab71841d695135246693eb3a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 9.5
+      value: 7.55
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 18fcd494ab71841d695135246693eb3a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.06
+      value: 0.11
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 18fcd494ab71841d695135246693eb3a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1241,6 +1241,47 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400004, guid: b241b59d6a89aff4fbf0bce77e644761, type: 2}
   m_PrefabInternal: {fileID: 765725950}
+--- !u!1 &869563145
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 869563147}
+  - component: {fileID: 869563146}
+  m_Layer: 0
+  m_Name: _FungusState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &869563146
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 869563145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedFlowchart: {fileID: 0}
+--- !u!4 &869563147
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 869563145}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &995570321
 Prefab:
   m_ObjectHideFlags: 0
@@ -1461,6 +1502,75 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400010, guid: 674c23718320e9d498cdad2a5bcd576a, type: 2}
   m_PrefabInternal: {fileID: 1010034453}
+--- !u!1 &1169856522
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1169856523}
+  - component: {fileID: 1169856524}
+  - component: {fileID: 1169856525}
+  m_Layer: 0
+  m_Name: AskForHelp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1169856523
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1169856522}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1656319084}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1169856524
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1169856522}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.96, y: 3.4}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.27, y: 7.95}
+  m_EdgeRadius: 0
+--- !u!114 &1169856525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1169856522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c42b8e90e2251fc4fbdb406e7550d948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextObjectImage: {fileID: 1734737146}
+  TextObject: {fileID: 1306291893}
+  WhatToSay: HeyBOi
 --- !u!1001 &1171459154
 Prefab:
   m_ObjectHideFlags: 0
@@ -6512,6 +6622,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 916a3574cd5869f4e8c61e7d0db78791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 1812243698}
+  playerMotor: {fileID: 1812243697}
 --- !u!1 &1469719528
 GameObject:
   m_ObjectHideFlags: 0
@@ -6567,9 +6679,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: ea60270db7e473d42b84833a4faa33bb, type: 3}
+  m_Sprite: {fileID: 21300004, guid: ea60270db7e473d42b84833a4faa33bb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 2.56, y: 2.56}
@@ -6584,7 +6696,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1469719528}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.61, y: 0.29, z: 1}
+  m_LocalPosition: {x: 1.17, y: -0.01, z: 1}
   m_LocalScale: {x: 0.61329764, y: 0.6132977, z: 0.6132977}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6602,18 +6714,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -2.57, y: 1.35}
+  m_Offset: {x: 5.5, y: 0.3}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.70903504, y: 0.20392527}
-    oldSize: {x: 6.65, y: 7.2900004}
+    pivot: {x: 0.96999097, y: 0.45310542}
+    oldSize: {x: 13.25, y: 3.29}
     newSize: {x: 2.56, y: 2.56}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.89, y: 5.08}
+  m_Size: {x: 12, y: 3.04}
   m_EdgeRadius: 0
 --- !u!114 &1469719532
 MonoBehaviour:
@@ -6626,9 +6738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7442b5dc4d733e149a0e031bdf85c1ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShadowText: {fileID: 1734737146}
-  UnderText: {fileID: 1306291893}
-  blocked: 0
+  blocked: 1
   GumObject: {fileID: 0}
   speed: 2
   talkedToPlayer: 0
@@ -6741,6 +6851,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1656319083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1656319084}
+  m_Layer: 0
+  m_Name: Triggers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1656319084
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1656319083}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1169856523}
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1734737146 stripped
 MonoBehaviour:
@@ -6860,6 +6999,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: 221314670e758e745a0949ab2a6b29d0, type: 2}
+--- !u!114 &1812243697 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114483691015646288, guid: 2d96cec792a60974888c2957819100b4,
+    type: 2}
+  m_PrefabInternal: {fileID: 2000010663}
+  m_Script: {fileID: 11500000, guid: a5ee7b3d7cfc2554087bad88bd1fadac, type: 3}
+--- !u!114 &1812243698 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114885236978045186, guid: 2d96cec792a60974888c2957819100b4,
+    type: 2}
+  m_PrefabInternal: {fileID: 2000010663}
+  m_Script: {fileID: 11500000, guid: 4940b798f4aca6142af40090aba8938f, type: 3}
 --- !u!4 &1840553579 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400010, guid: 674c23718320e9d498cdad2a5bcd576a, type: 2}
@@ -7038,6 +7189,8 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Press the start button to open the menu
 
+    (press "HELP" in the menu to open this introduction again)
+
 
     Help te monster progress by grabbing your gum with the B button and clicking on
     the monster with A. You can also stick the gum against some walls with A.
@@ -7168,6 +7321,18 @@ Prefab:
     - target: {fileID: 4467317403830468, guid: 2d96cec792a60974888c2957819100b4, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1346874992358006, guid: 2d96cec792a60974888c2957819100b4, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449050608000262, guid: 2d96cec792a60974888c2957819100b4, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1745888690966844, guid: 2d96cec792a60974888c2957819100b4, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d96cec792a60974888c2957819100b4, type: 2}

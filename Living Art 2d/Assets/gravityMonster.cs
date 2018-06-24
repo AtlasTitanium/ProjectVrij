@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class gravityMonster : MonoBehaviour {
-	public Image ShadowText;
-	public Text UnderText;
 	public bool blocked = false;
 	public GameObject GumObject;
 	public float speed;
@@ -27,35 +25,33 @@ public class gravityMonster : MonoBehaviour {
 	}
 	void Update () {
 		if(blocked){
+			this.GetComponent<SpriteRenderer>().flipX = true;
 			GumObject = null;
 			this.GetComponent<SpriteRenderer>().sprite = scaredSprite;
-			this.GetComponent<BoxCollider2D>().offset = new Vector2(-3.85f,0.15f);
-			this.GetComponent<BoxCollider2D>().size = new Vector2(8,2.5f);
-			UnderText.text = "Help Me...";
+			this.GetComponent<BoxCollider2D>().offset = new Vector2(5.5f,0.15f);
+			this.GetComponent<BoxCollider2D>().size = new Vector2(12,2.5f);
 			if(transparesy > 0.5f){
 				return;
 			}
 			if(!howfast){
-				ShadowText.color = new Color(ShadowText.color.r,ShadowText.color.g,ShadowText.color.b,transparesy);
-				UnderText.color = new Color(UnderText.color.r,UnderText.color.g,UnderText.color.b,transparesy*2);
 				transparesy += 0.02f;
 				StartCoroutine(Fast());
 			}
 			return;
 		} else {
+			this.GetComponent<SpriteRenderer>().flipX = false;
 			//Debug.Log("not Blocked");
 			if(transparesy == 0.0f){
 				howfast = true;
 			}
 			if(!howfast){
-				ShadowText.color = new Color(ShadowText.color.r,ShadowText.color.g,ShadowText.color.b,transparesy);
-				UnderText.color = new Color(UnderText.color.r,UnderText.color.g,UnderText.color.b,transparesy*2);
 				transparesy -= 0.02f;
 				StartCoroutine(Fast());
 			}
 		}
 		if(talkedToPlayer){
 			if(GumObject == null){
+				this.GetComponent<SpriteRenderer>().flipX = false;
 				this.GetComponent<SpriteRenderer>().sprite = idleSprite;
 				this.GetComponent<BoxCollider2D>().offset = new Vector2(-0.2f,1.8f);
 				this.GetComponent<BoxCollider2D>().size = new Vector2(4.15f,5.65f);
