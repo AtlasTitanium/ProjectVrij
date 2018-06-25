@@ -44,6 +44,8 @@ public class Rain : MonoBehaviour{
                 Debug.Log("enter Spooder");
                 Spoodmonst.GetComponent<SpiderMonster>().GumObject = null;
                 Spoodmonst.GetComponent<Collider2D>().enabled = false;
+                Spoodmonst.GetComponent<SpiderMonster>().wet = true;
+                Spoodmonst.GetComponent<SpiderMonster>().Dry();
                 Spoodmonst.transform.localPosition = new Vector2(Spoodmonst.transform.localPosition.x+0.8f,Spoodmonst.transform.localPosition.y);
                 StartCoroutine(Fast());
             }

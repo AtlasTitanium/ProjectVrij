@@ -65,8 +65,8 @@ public class gravityMonster : MonoBehaviour {
 						i = 0;
 					}
 					this.GetComponent<SpriteRenderer>().sprite = walkSprites[i];
-					this.GetComponent<BoxCollider2D>().offset = new Vector2(-3.85f,-0.7f);
-					this.GetComponent<BoxCollider2D>().size = new Vector2(8,3.22f);
+					this.GetComponent<BoxCollider2D>().offset = new Vector2(-1.2f,-0.7f);
+					this.GetComponent<BoxCollider2D>().size = new Vector2(2.7f,3.22f);
 					StartCoroutine(WaitMonster());
 					waitForNextFrame = true;
 				}
