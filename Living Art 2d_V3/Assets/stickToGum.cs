@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class stickToGum : MonoBehaviour {
 
@@ -10,9 +12,14 @@ public class stickToGum : MonoBehaviour {
 	private bool onlyOnce = true;
 	private GameObject PickUpPlace;
 	public gravityMonster MonsterScript;
+	public MouseText mouse;
 	void Update(){
 		if(Gum != null){
+			mouse.DisplayText("Press Right Mouse to place gum");
+			//Debug.Log("there's gum");
 			if(Input.GetButtonDown("Fire3")){
+				PickObj.Object.transform.parent = null;
+				PickObj.Object.transform.localScale = PickObj.size;
 				Gum.tag = "UsedGum";
 				Gum.layer = 0;
 				//Debug.Log("sticktoGum");
@@ -21,6 +28,7 @@ public class stickToGum : MonoBehaviour {
 
 				this.transform.rotation = Gum.transform.rotation;
 				if(PickObj != null){
+					mouse.DisplayText("");
 					PickObj.Object.GetComponent<Collider2D>().isTrigger = true;
 					PickObj.Object = null;
 					PickObj.picked = false;	
@@ -42,6 +50,7 @@ public class stickToGum : MonoBehaviour {
 
 	void OnTriggerExit2D(Collider2D other){
 		if(Gum != null){
+			mouse.DisplayText("");
 			Gum.transform.parent.GetComponent<SpriteRenderer>().color = OriginalColor;
 			onlyOnce = true;
 			Gum = null;

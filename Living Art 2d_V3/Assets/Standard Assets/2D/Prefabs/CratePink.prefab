@@ -147,3 +147,4 @@ MonoBehaviour:
   Gum: {fileID: 0}
   PickObj: {fileID: 0}
   MonsterScript: {fileID: 0}
+  mouse: {fileID: 0}
