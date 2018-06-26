@@ -17,6 +17,7 @@ public class gravityMonster : MonoBehaviour {
 	public Sprite scaredSprite;
 	private bool waitForNextFrame = false;
 	private int i = -1;
+	public GameObject Particles;
 	void Start(){
 		anim = GetComponent<Animator>();
 		this.GetComponent<SpriteRenderer>().sprite = scaredSprite;
@@ -28,8 +29,8 @@ public class gravityMonster : MonoBehaviour {
 			//this.GetComponent<SpriteRenderer>().flipX = true;
 			GumObject = null;
 			this.GetComponent<SpriteRenderer>().sprite = scaredSprite;
-			this.GetComponent<BoxCollider2D>().offset = new Vector2(-4.0f,0.1f);
-			this.GetComponent<BoxCollider2D>().size = new Vector2(8.5f,3f);
+			this.GetComponent<BoxCollider2D>().offset = new Vector2(1.5f,0.3f);
+			this.GetComponent<BoxCollider2D>().size = new Vector2(3.7f,3f);
 			if(transparesy > 0.5f){
 				return;
 			}
@@ -59,14 +60,24 @@ public class gravityMonster : MonoBehaviour {
 				GumObject = GameObject.FindGameObjectWithTag("HoldingGum");
 				StartCoroutine(WaitForOff());
 			} else {
+				if((GumObject.transform.position.x - this.transform.position.x) < -0.5f){
+					this.GetComponent<SpriteRenderer>().flipX = true;
+					Particles.transform.localPosition = new Vector2(-4,-0.5f);
+					this.GetComponent<BoxCollider2D>().offset = new Vector2(1.5f,-0.5f);
+					this.GetComponent<BoxCollider2D>().size = new Vector2(3.7f,3f);
+				}
+				if((GumObject.transform.position.x - this.transform.position.x) > -0.5f){
+					this.GetComponent<SpriteRenderer>().flipX = false;
+					Particles.transform.localPosition = new Vector2(-12,-0.5f);
+					this.GetComponent<BoxCollider2D>().offset = new Vector2(-1.5f,-0.5f);
+					this.GetComponent<BoxCollider2D>().size = new Vector2(3.7f,3f);
+				}
 				if(!waitForNextFrame){
 					i += 1;
 					if(i == walkSprites.Length){
 						i = 0;
 					}
 					this.GetComponent<SpriteRenderer>().sprite = walkSprites[i];
-					this.GetComponent<BoxCollider2D>().offset = new Vector2(-1.2f,-0.7f);
-					this.GetComponent<BoxCollider2D>().size = new Vector2(2.7f,3.22f);
 					StartCoroutine(WaitMonster());
 					waitForNextFrame = true;
 				}
@@ -106,11 +117,23 @@ public class gravityMonster : MonoBehaviour {
 			blocked = false;
 		}
 	}
+	
+
+	void OnTriggerStay2D(Collider2D other){
+		if(other.tag == "Crate"){
+			Debug.Log(other.gameObject);
+			this.GetComponent<SpriteRenderer>().flipX = true;
+			blocked = true;
+		}
+	}
 	*/
 
 	void OnTriggerExit2D(Collider2D other){
 		if(other.tag == "Crate"){
+			this.GetComponent<SpriteRenderer>().flipX = false;
 			this.GetComponent<SpriteRenderer>().sprite = idleSprite;
+			this.GetComponent<BoxCollider2D>().offset = new Vector2(-0.2f,1.8f);
+				this.GetComponent<BoxCollider2D>().size = new Vector2(4.15f,5.65f);
 			//anim.SetBool("Scared",false);
 			blocked = false;
 		}
