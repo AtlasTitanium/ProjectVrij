@@ -22,7 +22,7 @@ public class SpiderMonster : MonoBehaviour {
 
 	void Update () {
 		for(int i = 0; i < fow.visibleTargets.Count; i++){
-			if(fow.visibleTargets[i].tag == "Monster"){
+			if(fow.visibleTargets[i].tag == "Monster" || fow.visibleTargets[i].tag == "MonsterBaby" ){
 				monster = fow.visibleTargets[i].gameObject;
 			}
 			if(fow.visibleTargets[i].tag == "Gum"){
@@ -78,6 +78,9 @@ public class SpiderMonster : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D other){
 		if(other.tag == "Monster"){
+			Application.LoadLevel(4);
+		}
+		if(other.tag == "MonsterBaby"){
 			Application.LoadLevel(4);
 		}
 	}
