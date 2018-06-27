@@ -53,7 +53,9 @@ public class PickupObject : MonoBehaviour{
 	void OnTriggerStay2D(Collider2D other){
 		if(other.transform.tag == "Pickup"){
 			Object = other.gameObject;
-			
+		}
+		if(other.transform.tag == "Crate"){
+			mouse.DisplayText("Looks too heavy to pickup...");
 		}
 	}
 
@@ -63,6 +65,9 @@ public class PickupObject : MonoBehaviour{
 				mouse.DisplayText("");
 				Object = null;
 			}
+		}
+		if(other.transform.tag == "Crate"){
+			mouse.DisplayText("");
 		}
 	}
 }

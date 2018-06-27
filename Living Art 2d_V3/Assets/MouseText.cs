@@ -12,7 +12,7 @@ public class MouseText : MonoBehaviour {
 
 	void Update () {
 		MousePlace = new Vector2(Input.mousePosition.x,Input.mousePosition.y);
-		Debug.Log(MousePlace);
+		//Debug.Log(MousePlace);
 	}
 
 	public void DisplayText(string Text){
