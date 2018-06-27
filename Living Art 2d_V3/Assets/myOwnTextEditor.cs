@@ -6,13 +6,16 @@ using UnityEngine.UI;
 public class myOwnTextEditor : MonoBehaviour {
 	public Image TextObjectImage;
 	public Text TextObject;
-	public string WhatToSay;
-	public float transperency = 0.0f;
-	public bool fadein = false;
-	public bool fadeout = false;
+	public gravityMonster Monster;
+	public bool forMonster = false;
+	public bool forBlocked = false;
+	public bool Always = false;
+	private float transperency = 0.0f;
+	private bool fadein = false;
+	private bool fadeout = false;
+	private bool timesUp = false;
 
 	void Update(){
-		//Debug.Log(transperency);
 		if(fadein){
 			if(transperency >= 0.5f){
 				transperency = 0.5f;
@@ -39,19 +42,61 @@ public class myOwnTextEditor : MonoBehaviour {
 			TextObjectImage.color = new Color(TextObjectImage.color.r,TextObjectImage.color.g,TextObjectImage.color.b,transperency);
 			transperency -= 0.025f;
 		}
+
 	}
 	void OnTriggerEnter2D(Collider2D other){
 		if(other.tag == "Player"){
-			TextObject.gameObject.SetActive(true);
-			TextObjectImage.gameObject.SetActive(true);
-			TextObject.text = WhatToSay;
-			fadein = true;
+			if(forMonster){
+				if(forBlocked){
+					if(Monster.GetComponent<gravityMonster>().blocked == true){
+						fadeout = false;
+						TextObject.gameObject.SetActive(true);
+						TextObjectImage.gameObject.SetActive(true);
+						fadein = true;
+					}
+				} else {
+					if(Monster.GetComponent<gravityMonster>().blocked == false){
+						fadeout = false;
+						TextObject.gameObject.SetActive(true);
+						TextObjectImage.gameObject.SetActive(true);
+						fadein = true;
+					}
+				}
+			} else {
+				if(Always){
+					fadeout = false;
+					TextObject.gameObject.SetActive(true);
+					TextObjectImage.gameObject.SetActive(true);
+					fadein = true;
+				} else {
+					if(!timesUp){
+						fadeout = false;
+						TextObject.gameObject.SetActive(true);
+						TextObjectImage.gameObject.SetActive(true);
+						fadein = true;
+					} else {
+						fadein = false;
+						fadeout = true;
+					}
+				}
+			}
+			
 		}
 	}
 
 	void OnTriggerExit2D(Collider2D other){
 		if(other.tag == "Player"){
-			fadeout = true;
+			if(!Always){
+				StartCoroutine(Time());
+			} else {
+				fadein = false;
+				fadeout = true;
+			}
 		}
+	}
+
+	IEnumerator Time(){
+		yield return new WaitForSeconds(2f);
+		timesUp = true;
 	}
 }
