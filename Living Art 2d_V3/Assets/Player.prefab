@@ -1202,20 +1202,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Press the start button to open the menu
-
-
-    Help te monster progress by grabbing your gum with the B button and clicking on
-    the monster with A. You can also stick the gum against some walls with A.
-
-
-    You can Jump with Y and drop down platforms by pressing the left joystick down.
-
-
-    You can Pick up some items with X and stick them against gum with A.
-
-
-    If you and the monster are in a dooropening, press the left joystick up to enter.'
+  m_Text: "Press Escape to open the menu\n(press \"HELP\" in the menu to open this
+    introduction again)\n\nYou're always chewing gum, so press R to get your gum for
+    use, press R again to drop the gum.\n\nUse WASD to walk left or right and press
+    Space to jump\nIn some places you can jump onto platforms. \nIf you're on a platform,
+    press down (S) to get down."
 --- !u!114 &114885236978045186
 MonoBehaviour:
   m_ObjectHideFlags: 1
