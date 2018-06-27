@@ -681,12 +681,12 @@ MonoBehaviour:
   - You did it!! The parent and child are back together!!
   - With them free, you helped the neigbourhood light up with the beautifull gravitty
     art you and the creatures created
-  TimeForText: 10
-  TimeInBetween: 5
+  TimeForText: 9
+  TimeInBetween: 4.5
   transparencySpeed: 0.01
   fadeTransperency: 0
   fadeImage: {fileID: 1772649780}
-  creditsSpeed: 1
+  creditsSpeed: 1.5
 --- !u!1 &1592728010
 GameObject:
   m_ObjectHideFlags: 0

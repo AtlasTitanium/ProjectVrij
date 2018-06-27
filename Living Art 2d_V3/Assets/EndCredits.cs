@@ -62,7 +62,7 @@ public class EndCredits : MonoBehaviour {
 			if(fadeImage.GetComponent<FadeInImage>().transperency >= 0.99){
 				rolingCredits.transform.position = new Vector2(rolingCredits.transform.position.x, height);
 				height += creditsSpeed;
-				if(height >= 800){
+				if(height >= 1200){
 					StartCoroutine(Ending());
 				}
 			} else {

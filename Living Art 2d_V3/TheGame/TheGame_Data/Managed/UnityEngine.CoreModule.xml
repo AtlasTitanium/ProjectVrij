@@ -1865,14 +1865,14 @@ Here is an example of handling the callback:</para>
     </member>
     <member name="M:UnityEngine.Application.LoadLevel(System.Int32)">
       <summary>
-        <para>Loads the level by its name or index.</para>
+        <para>Note: This is now obsolete. Use SceneManager.LoadScene instead.</para>
       </summary>
       <param name="index">The level to load.</param>
       <param name="name">The name of the level to load.</param>
     </member>
     <member name="M:UnityEngine.Application.LoadLevel(System.String)">
       <summary>
-        <para>Loads the level by its name or index.</para>
+        <para>Note: This is now obsolete. Use SceneManager.LoadScene instead.</para>
       </summary>
       <param name="index">The level to load.</param>
       <param name="name">The name of the level to load.</param>
@@ -25019,6 +25019,11 @@ Allows for CPU determination of whether the GPU has passed the point in its proc
     <member name="F:UnityEngine.Rendering.GraphicsDeviceType.PlayStationVita">
       <summary>
         <para>PlayStation Vita graphics API.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Rendering.GraphicsDeviceType.Switch">
+      <summary>
+        <para>Nintendo Switch graphics API.</para>
       </summary>
     </member>
     <member name="F:UnityEngine.Rendering.GraphicsDeviceType.Vulkan">

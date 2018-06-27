@@ -16,8 +16,9 @@ public class ToLastLevel : MonoBehaviour {
 			if(Input.GetAxis("Vertical") > 0.9f){
 				Application.LoadLevel(LevelInteger);
 			}
+		} else {
+			textObject.SetActive(false);
 		}
-		textObject.SetActive(false);
 	}
 	void OnTriggerStay2D(Collider2D other){
 		if(other.tag == "Player"){

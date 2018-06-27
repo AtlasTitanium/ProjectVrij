@@ -11,6 +11,7 @@ public class myOwnTextEditor : MonoBehaviour {
 	public bool forBlocked = false;
 	public bool Always = false;
 	public bool ForthePlayer = true;
+	public bool ForTheMonster = false;
 	private float transperency = 0.0f;
 	private bool fadein = false;
 	private bool fadeout = false;
@@ -97,24 +98,46 @@ public class myOwnTextEditor : MonoBehaviour {
 				}
 			}
 		} else {
-			if(other.tag == "Pickup" || other.tag == "Monster"){
-				if(Always){
-					fadeout = false;
-					TextObject.gameObject.SetActive(true);
-					TextObjectImage.gameObject.SetActive(true);
-					fadein = true;
-				} else {
-					if(!timesUp){
+			if(ForTheMonster){
+				if(other.tag == "Monster"){
+					if(Always){
 						fadeout = false;
 						TextObject.gameObject.SetActive(true);
 						TextObjectImage.gameObject.SetActive(true);
 						fadein = true;
 					} else {
-						fadein = false;
-						fadeout = true;
+						if(!timesUp){
+							fadeout = false;
+							TextObject.gameObject.SetActive(true);
+							TextObjectImage.gameObject.SetActive(true);
+							fadein = true;
+						} else {
+							fadein = false;
+							fadeout = true;
+						}
+					}
+				}
+			} else {
+				if(other.tag == "Pickup"){
+					if(Always){
+						fadeout = false;
+						TextObject.gameObject.SetActive(true);
+						TextObjectImage.gameObject.SetActive(true);
+						fadein = true;
+					} else {
+						if(!timesUp){
+							fadeout = false;
+							TextObject.gameObject.SetActive(true);
+							TextObjectImage.gameObject.SetActive(true);
+							fadein = true;
+						} else {
+							fadein = false;
+							fadeout = true;
+						}
 					}
 				}
 			}
+			
 		}
 	}
 
