@@ -46,7 +46,7 @@ public class GumPlace : MonoBehaviour {
 					gum.transform.localScale = new Vector2(gum.transform.localScale.x * 2,gum.transform.localScale.y * 2);
 					gum.transform.rotation = Quaternion.identity;
 					otherGumPlace.GetComponent<AGuMPLace>().hasGum = true;
-					otherGumPlace.GetComponent<SpriteRenderer>().color = originalColor;
+					//otherGumPlace.GetComponent<SpriteRenderer>().color = originalColor;
 					gum = null;
 				}
 			}
@@ -76,14 +76,10 @@ public class GumPlace : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter2D(Collider2D other){
+	void OnTriggerStay2D(Collider2D other){
 		if(other.transform.tag == "AGumPlace"){
-			otherGumPlace = other.gameObject;
-			originalColor = other.GetComponent<SpriteRenderer>().color;
-			if(!otherGumPlace.GetComponent<AGuMPLace>().hasGum){
-				if(gum != null){
-					other.GetComponent<SpriteRenderer>().color = Color.yellow;
-				}
+			if(gum != null){
+				otherGumPlace = other.gameObject;
 			}
 		}
 		if(other.transform.tag == "Monster"){
@@ -100,7 +96,7 @@ public class GumPlace : MonoBehaviour {
 
 	void OnTriggerExit2D(Collider2D other){
 		if(other.transform.tag == "AGumPlace"){
-			other.GetComponent<SpriteRenderer>().color = originalColor;
+			//other.GetComponent<SpriteRenderer>().color = originalColor;
 			Mouse.DisplayText("");
 			otherGumPlace = null;
 		}
