@@ -52,7 +52,7 @@ public class GumPlace : MonoBehaviour {
 			}
 			if(monster != null){
 				if(monster.GetComponent<gravityMonster>().talkedToPlayer != true){
-					Mouse.DisplayText("Press Mouse 1 to lure monster");
+					Mouse.DisplayText("Press Left Mouse to lure creature");
 					Debug.Log("There's a monster");
 				}
 				if(Input.GetButtonDown("Fire3")){
@@ -63,7 +63,7 @@ public class GumPlace : MonoBehaviour {
 			}
 			if(Babymonster != null){
 				if(Babymonster.GetComponent<MonsterBaby>().talkedToPlayer != true){
-					Mouse.DisplayText("Press Mouse 1 to lure baby");
+					Mouse.DisplayText("Press Left Mouse to lure baby");
 					Debug.Log("There's a baby monster");
 				}
 				

@@ -22137,7 +22137,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Press Escape to open the menu\n(press \"HELP\" in the menu to open this
-    introduction again)\n\nYou're always chewing gum, so press R to get your gum for
+    introduction again)\n\nYou always chewing gum, so press R to get your gum for
     use, press R again to drop the gum.\n\nUse WASD to walk left or right and press
     Space to jump\nIn some places you can jump onto platforms. \nIf you're on a platform,
     press down (S) to get down."

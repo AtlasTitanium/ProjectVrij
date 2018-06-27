@@ -16,7 +16,7 @@ public class stickToGum : MonoBehaviour {
 	void Update(){
 		if(PickObj.Object != null){
 			if(Gum != null){
-				mouse.DisplayText("Press Right Mouse to place object");
+				mouse.DisplayText("Press Left Mouse to place object");
 				//Debug.Log("there's gum");
 				if(Input.GetButtonDown("Fire3")){
 					PickObj.Object.transform.parent = null;
