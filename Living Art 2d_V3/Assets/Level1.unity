@@ -479,7 +479,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &395736241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12410,8 +12410,8 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 2000010664}
-  m_sendNavigationEvents: 1
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 0
   m_DragThreshold: 5
 --- !u!4 &1615380754
 Transform:
@@ -22502,21 +22502,16 @@ Prefab:
     - target: {fileID: 114483691015646288, guid: 2d96cec792a60974888c2957819100b4,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114885236978045186, guid: 2d96cec792a60974888c2957819100b4,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d96cec792a60974888c2957819100b4, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &2000010664 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1482385559312210, guid: 2d96cec792a60974888c2957819100b4,
-    type: 2}
-  m_PrefabInternal: {fileID: 2000010663}
 --- !u!1 &2017527009
 GameObject:
   m_ObjectHideFlags: 0

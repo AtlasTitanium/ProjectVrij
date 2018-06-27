@@ -271,9 +271,9 @@ MonoBehaviour:
   Texts:
   - It suddenly started storming outside! I was lucky to find this old building for
     shelter.
-  - It looks very grim and decayed, but everything is better than stale classroom!
-  TimeForText: 10
-  TimeInBetween: 5
+  - It looks very grim and decayed, but everything is better than that stale classroom!
+  TimeForText: 8
+  TimeInBetween: 4
   transparencySpeed: 0.01
   fadeImage: {fileID: 1722013703}
 --- !u!1 &780547648
