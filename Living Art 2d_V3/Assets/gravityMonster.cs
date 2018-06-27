@@ -29,7 +29,11 @@ public class gravityMonster : MonoBehaviour {
 			//this.GetComponent<SpriteRenderer>().flipX = true;
 			GumObject = null;
 			this.GetComponent<SpriteRenderer>().sprite = scaredSprite;
-			this.GetComponent<BoxCollider2D>().offset = new Vector2(1.5f,0.3f);
+			if(this.GetComponent<SpriteRenderer>().flipX == false){
+				this.GetComponent<BoxCollider2D>().offset = new Vector2(-1.5f,0.3f);
+			} else {
+				this.GetComponent<BoxCollider2D>().offset = new Vector2(0.5f,0.3f);
+			}
 			this.GetComponent<BoxCollider2D>().size = new Vector2(3.7f,3f);
 			if(transparesy > 0.5f){
 				return;
@@ -61,12 +65,20 @@ public class gravityMonster : MonoBehaviour {
 				StartCoroutine(WaitForOff());
 			} else {
 				if((GumObject.transform.position.x - this.transform.position.x) < -0.5f){
+					if(transform.GetChild(transform.childCount-1).tag == "MonsterBaby"){
+						transform.GetChild(transform.childCount-1).transform.localPosition = new Vector3(2.6f,1.2f,-1.1f);
+						transform.GetChild(transform.childCount-1).transform.GetComponent<SpriteRenderer>().flipX = false;
+					}
 					this.GetComponent<SpriteRenderer>().flipX = true;
 					Particles.transform.localPosition = new Vector2(-4,-0.5f);
-					this.GetComponent<BoxCollider2D>().offset = new Vector2(1.5f,-0.5f);
-					this.GetComponent<BoxCollider2D>().size = new Vector2(3.7f,3f);
+					this.GetComponent<BoxCollider2D>().offset = new Vector2(0.5f,-0.5f);
+					this.GetComponent<BoxCollider2D>().size = new Vector2(1.5f,3f);
 				}
 				if((GumObject.transform.position.x - this.transform.position.x) > -0.5f){
+					if(transform.GetChild(transform.childCount-1).tag == "MonsterBaby"){
+						transform.GetChild(transform.childCount-1).transform.localPosition = new Vector3(-2f,0.9f,-1.1f);
+						transform.GetChild(transform.childCount-1).transform.GetComponent<SpriteRenderer>().flipX = true;
+					}
 					this.GetComponent<SpriteRenderer>().flipX = false;
 					Particles.transform.localPosition = new Vector2(-12,-0.5f);
 					this.GetComponent<BoxCollider2D>().offset = new Vector2(-1.5f,-0.5f);

@@ -1169,6 +1169,7 @@ MonoBehaviour:
   Babymonster: {fileID: 0}
   middlegumSprite: {fileID: 21300002, guid: 0e50fb5110a79734392256280ee4c1cf, type: 3}
   endgumSprite: {fileID: 21300004, guid: 0e50fb5110a79734392256280ee4c1cf, type: 3}
+  Mouse: {fileID: 0}
 --- !u!114 &114823654143722184
 MonoBehaviour:
   m_ObjectHideFlags: 1

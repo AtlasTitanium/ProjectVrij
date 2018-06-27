@@ -5274,6 +5274,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114779470864308222, guid: 2d96cec792a60974888c2957819100b4,
+        type: 2}
+      propertyPath: Mouse
+      value: 
+      objectReference: {fileID: 334711434}
     - target: {fileID: 114570080946279298, guid: 2d96cec792a60974888c2957819100b4,
         type: 2}
       propertyPath: mouse
@@ -7217,7 +7222,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0dfbeaea3a16dc7438af33b14fb8d9c3, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -7233,7 +7238,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 537319226}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 40.12, y: 2.91, z: 0.8160107}
+  m_LocalPosition: {x: 39.67, y: 3.36, z: 0.8160107}
   m_LocalScale: {x: 0.40084532, y: 0.40084532, z: 0.40084532}
   m_Children:
   - {fileID: 597011641}

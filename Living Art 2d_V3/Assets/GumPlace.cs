@@ -12,6 +12,7 @@ public class GumPlace : MonoBehaviour {
 	private bool follow = true;
 	public Sprite middlegumSprite;
 	public Sprite endgumSprite;
+	public MouseText Mouse;
 	void Update () {
 		if(gum == null){
 			if(Input.GetButtonDown("Fire2")){
@@ -30,7 +31,11 @@ public class GumPlace : MonoBehaviour {
 				StartCoroutine(WaitForGum());
 			} 
 			if(otherGumPlace != null){
+				if(otherGumPlace.GetComponent<AGuMPLace>().hasGum != true){
+					Mouse.DisplayText("Press Mouse 1 to place gum");
+				}
 				if(Input.GetButtonDown("Fire3")){
+					Mouse.DisplayText("");
 					//Debug.Log("Place gum");
 					gum.tag = "Gum";
 					gum.GetComponent<SpriteRenderer>().sprite = middlegumSprite;
@@ -46,13 +51,24 @@ public class GumPlace : MonoBehaviour {
 				}
 			}
 			if(monster != null){
+				if(monster.GetComponent<gravityMonster>().talkedToPlayer != true){
+					Mouse.DisplayText("Press Mouse 1 to lure monster");
+					Debug.Log("There's a monster");
+				}
 				if(Input.GetButtonDown("Fire3")){
+					Mouse.DisplayText("");
 					//Debug.Log("Place gum");
 					monster.GetComponent<gravityMonster>().talkedToPlayer = true;
 				}
 			}
 			if(Babymonster != null){
+				if(Babymonster.GetComponent<MonsterBaby>().talkedToPlayer != true){
+					Mouse.DisplayText("Press Mouse 1 to lure baby");
+					Debug.Log("There's a baby monster");
+				}
+				
 				if(Input.GetButtonDown("Fire3")){
+					Mouse.DisplayText("");
 					//Debug.Log("Place gum");
 					Babymonster.GetComponent<MonsterBaby>().talkedToPlayer = true;
 				}
@@ -65,34 +81,41 @@ public class GumPlace : MonoBehaviour {
 			otherGumPlace = other.gameObject;
 			originalColor = other.GetComponent<SpriteRenderer>().color;
 			if(!otherGumPlace.GetComponent<AGuMPLace>().hasGum){
-				other.GetComponent<SpriteRenderer>().color = Color.yellow;
+				if(gum != null){
+					other.GetComponent<SpriteRenderer>().color = Color.yellow;
+				}
 			}
 		}
 		if(other.transform.tag == "Monster"){
-			Debug.Log("There's a monster");
-			monster = other.gameObject;
+			if(gum != null){
+				monster = other.gameObject;
+			}
 		}
 		if(other.transform.tag == "MonsterBaby"){
-			Debug.Log("There's a baby monster");
-			Babymonster = other.gameObject;
+			if(gum != null){
+				Babymonster = other.gameObject;
+			}
 		}
 	}
 
 	void OnTriggerExit2D(Collider2D other){
 		if(other.transform.tag == "AGumPlace"){
 			other.GetComponent<SpriteRenderer>().color = originalColor;
+			Mouse.DisplayText("");
 			otherGumPlace = null;
 		}
 		if(other.transform.tag == "Monster"){
 			if(monster != null){
+				Mouse.DisplayText("");
 				//monster.GetComponent<gravityMonster>().talkedToPlayer = false;
 				monster = null;
 			}
 		}
 		if(other.transform.tag == "MonsterBaby"){
-			if(monster != null){
+			if(Babymonster != null){
+				Mouse.DisplayText("");
 				//monster.GetComponent<gravityMonster>().talkedToPlayer = false;
-				monster = null;
+				Babymonster = null;
 			}
 		}
 	}
