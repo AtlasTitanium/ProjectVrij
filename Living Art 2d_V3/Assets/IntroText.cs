@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class IntroText : MonoBehaviour {
 	public string[] Texts;
 	public float TimeForText;
-	public float TimeInBetween;
 	public float transparencySpeed = 0.1f;
 	private Text TextObject;
 	private float transparency = 0f;
@@ -69,13 +68,13 @@ public class IntroText : MonoBehaviour {
 		WaitForText = false;
     }
 	IEnumerator FadIn(){
-        yield return new WaitForSeconds(TimeInBetween);
+        yield return new WaitForSeconds(TimeForText/2);
 		Debug.Log("ChangeFade");
 		FadeOut = true;
     }
 
 	IEnumerator FadOut(){
-        yield return new WaitForSeconds(TimeInBetween);
+        yield return new WaitForSeconds(TimeForText/2);
 		Debug.Log("ChangeFade");
 		FadeIn = true;
     }
