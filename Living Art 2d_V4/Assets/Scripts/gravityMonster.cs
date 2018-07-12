@@ -19,6 +19,7 @@ public class gravityMonster : MonoBehaviour {
 	private int i = -1;
 	public GameObject Particles;
 	public GameObject leftBarrier,rightBarrier,upBarrier,downBarrier;
+	public bool UpScene = false;
 
 	void Start(){
 		anim = GetComponent<Animator>();
@@ -27,6 +28,20 @@ public class gravityMonster : MonoBehaviour {
 		//anim.SetBool("Movin",false);
 	}
 	void Update () {
+		if(UpScene){
+			GetComponent<Collider2D>().enabled = false;
+			if(!waitForNextFrame){
+				i += 1;
+				if(i == walkSprites.Length){
+					i = 0;
+				}
+				this.GetComponent<SpriteRenderer>().sprite = walkSprites[i];
+				StartCoroutine(WaitMonster());
+				waitForNextFrame = true;
+			}
+			transform.position = new Vector2(transform.position.x, transform.position.y + 0.025f);
+			return;
+		}
 		if(leftBarrier != null && rightBarrier != null && upBarrier != null && downBarrier != null ){
 			leftBarrier.SetActive(true);
 			rightBarrier.SetActive(true);

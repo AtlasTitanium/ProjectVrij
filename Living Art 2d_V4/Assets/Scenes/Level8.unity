@@ -948,7 +948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e8db3504ea709e45b0b524e6d5de8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelInteger: 4
+  LevelInteger: 11
   textObject: {fileID: 2083674277}
 --- !u!61 &351194321
 BoxCollider2D:
@@ -20026,6 +20026,10 @@ MonoBehaviour:
   idleSprite: {fileID: 21300002, guid: ea60270db7e473d42b84833a4faa33bb, type: 3}
   scaredSprite: {fileID: 21300004, guid: ea60270db7e473d42b84833a4faa33bb, type: 3}
   Particles: {fileID: 465065219}
+  leftBarrier: {fileID: 0}
+  rightBarrier: {fileID: 0}
+  upBarrier: {fileID: 0}
+  downBarrier: {fileID: 0}
 --- !u!95 &1469719533
 Animator:
   serializedVersion: 3
