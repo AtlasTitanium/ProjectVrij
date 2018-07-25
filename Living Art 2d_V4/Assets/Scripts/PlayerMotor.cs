@@ -31,6 +31,8 @@ public class PlayerMotor : MonoBehaviour {
 	public float dist = 1.0f;
 	private bool fall = false;
 	public int Xbox_One_Controller = 0;
+	public bool Level2 = false;
+	public Sprite idleSprite;
 	private void Awake(){
 		CheckIfGround = transform.Find("GroundCheck");
 		CeilingCheck = transform.Find("CeilingCheck");
@@ -41,6 +43,8 @@ public class PlayerMotor : MonoBehaviour {
 	}
 
 	void Update(){
+		if(Level2){PlayerAnimator.SetBool("Level2", true);return;}
+
 		string[] names = Input.GetJoystickNames();
 		for (int f = 0; f < names.Length; f++)
 		{
@@ -182,6 +186,7 @@ public class PlayerMotor : MonoBehaviour {
 				Arm.GetComponent<SpriteRenderer>().enabled = false;
 			} 
 			if(move < 0.01f && move > -0.01f){
+				this.GetComponent<SpriteRenderer>().sprite = idleSprite;
 				Arm.GetComponent<SpriteRenderer>().enabled = true;
 			}
 			
