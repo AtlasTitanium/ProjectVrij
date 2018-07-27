@@ -10,6 +10,7 @@ public class TrampolinePlace : MonoBehaviour {
 	private float Transparency = 0.0f;
 	private bool TransparencyUp = false;
 	public int WaitTime = 30;
+	public bool ShowText = false;
 	void Start(){
 		SprRnd = GetComponent<SpriteRenderer>();
 		StartCoroutine(WaitForSecond());
@@ -32,5 +33,6 @@ public class TrampolinePlace : MonoBehaviour {
 	IEnumerator WaitForSecond(){
 		yield return new WaitForSeconds(WaitTime);
 		TransparencyUp = true;
+		ShowText = true;
 	}
 }

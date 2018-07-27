@@ -5726,6 +5726,8 @@ MonoBehaviour:
   Trampoline: {fileID: 260549741}
   Gum: {fileID: 0}
   hasGum: 0
+  WaitTime: 30
+  ShowText: 0
 --- !u!58 &301860294
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -11559,6 +11561,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasGum: 0
+  WaitTime: 30
+  ShowText: 0
 --- !u!58 &742148845
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -12119,7 +12123,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 956178988}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7442b5dc4d733e149a0e031bdf85c1ee, type: 3}
   m_Name: 
@@ -12143,6 +12147,7 @@ MonoBehaviour:
   rightBarrier: {fileID: 99059686}
   upBarrier: {fileID: 1127003054}
   downBarrier: {fileID: 1527176439}
+  UpScene: 0
 --- !u!212 &956178993
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12375,6 +12380,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasGum: 0
+  WaitTime: 30
+  ShowText: 0
 --- !u!58 &1003220327
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -18338,6 +18345,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasGum: 0
+  WaitTime: 30
+  ShowText: 0
 --- !u!58 &1568551165
 CircleCollider2D:
   m_ObjectHideFlags: 0

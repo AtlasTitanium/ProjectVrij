@@ -210,12 +210,12 @@ Prefab:
     - target: {fileID: 114885236978045186, guid: 2d96cec792a60974888c2957819100b4,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114483691015646288, guid: 2d96cec792a60974888c2957819100b4,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4285878527554104, guid: 2d96cec792a60974888c2957819100b4, type: 2}
       propertyPath: m_LocalRotation.z
@@ -236,7 +236,7 @@ Prefab:
     - target: {fileID: 114483691015646288, guid: 2d96cec792a60974888c2957819100b4,
         type: 2}
       propertyPath: Level2
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 95528778742592812, guid: 2d96cec792a60974888c2957819100b4,
         type: 2}
@@ -247,11 +247,17 @@ Prefab:
         type: 2}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: ac42c5b1c29f7fb49bdd092329a2162b, type: 2}
+      objectReference: {fileID: 9100000, guid: 3a93e00218be6be40b55584fa17eb743, type: 2}
     - target: {fileID: 4467317403830468, guid: 2d96cec792a60974888c2957819100b4, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114483691015646288, guid: 2d96cec792a60974888c2957819100b4,
+        type: 2}
+      propertyPath: idleSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b48f5d1e448af3b4db1bee6c92d6dcc4,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d96cec792a60974888c2957819100b4, type: 2}
   m_IsPrefabParent: 0
@@ -673,7 +679,7 @@ GameObject:
   - component: {fileID: 165542327}
   - component: {fileID: 165542329}
   - component: {fileID: 165542328}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: DownBarrier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -848,7 +854,7 @@ GameObject:
   - component: {fileID: 208381272}
   - component: {fileID: 208381274}
   - component: {fileID: 208381273}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: LeftBarrier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1097,7 +1103,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 317437575}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1128,7 +1134,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 318575916}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1161,7 +1167,7 @@ GameObject:
   - component: {fileID: 338514171}
   - component: {fileID: 338514173}
   - component: {fileID: 338514172}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5923,7 +5929,7 @@ GameObject:
   - component: {fileID: 361732859}
   - component: {fileID: 361732861}
   - component: {fileID: 361732860}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: RightBarrier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6089,11 +6095,10 @@ GameObject:
   m_Component:
   - component: {fileID: 395973936}
   - component: {fileID: 395973935}
-  - component: {fileID: 395973934}
   - component: {fileID: 395973933}
   - component: {fileID: 395973932}
   - component: {fileID: 395973937}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: SceneMonster (2)
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -6138,31 +6143,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &395973934
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 395973931}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 1.9, y: -0.58}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.9734272, y: 0.5079492}
-    oldSize: {x: 11.09, y: 7.6800003}
-    newSize: {x: 2.56, y: 2.56}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.7, y: 3.04}
-  m_EdgeRadius: 0
 --- !u!212 &395973935
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11479,7 +11459,7 @@ GameObject:
   - component: {fileID: 709551435}
   - component: {fileID: 709551437}
   - component: {fileID: 709551436}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Particle System (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16096,7 +16076,7 @@ GameObject:
   - component: {fileID: 710088230}
   - component: {fileID: 710088232}
   - component: {fileID: 710088231}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Particle System (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20711,7 +20691,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 715700420}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20744,7 +20724,7 @@ GameObject:
   - component: {fileID: 770424247}
   - component: {fileID: 770424249}
   - component: {fileID: 770424248}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: UpBarrier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20817,7 +20797,7 @@ GameObject:
   - component: {fileID: 807770704}
   - component: {fileID: 807770706}
   - component: {fileID: 807770705}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Particle System (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25579,7 +25559,7 @@ GameObject:
   - component: {fileID: 831243432}
   - component: {fileID: 831243434}
   - component: {fileID: 831243433}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30320,7 +30300,7 @@ GameObject:
   - component: {fileID: 898680988}
   - component: {fileID: 898680990}
   - component: {fileID: 898680989}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Particle System (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35116,7 +35096,7 @@ GameObject:
   - component: {fileID: 962960481}
   - component: {fileID: 962960483}
   - component: {fileID: 962960482}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: RightBarrier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35189,7 +35169,7 @@ GameObject:
   - component: {fileID: 980933900}
   - component: {fileID: 980933902}
   - component: {fileID: 980933901}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: RightBarrier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35363,7 +35343,7 @@ GameObject:
   - component: {fileID: 1016429879}
   - component: {fileID: 1016429881}
   - component: {fileID: 1016429880}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: DownBarrier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35441,7 +35421,7 @@ GameObject:
   - component: {fileID: 1140581044}
   - component: {fileID: 1140581046}
   - component: {fileID: 1140581045}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40058,7 +40038,7 @@ GameObject:
   - component: {fileID: 1164364685}
   - component: {fileID: 1164364687}
   - component: {fileID: 1164364686}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Particle System (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44860,7 +44840,7 @@ GameObject:
   - component: {fileID: 1257603469}
   - component: {fileID: 1257603468}
   - component: {fileID: 1257603473}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: SceneMonster (1)
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -44886,7 +44866,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!95 &1257603469
 Animator:
   serializedVersion: 3
@@ -44914,10 +44894,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.9, y: -0.58}
+  m_Offset: {x: 0.4, y: -0.58}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.9734272, y: 0.5079492}
@@ -44928,7 +44908,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.7, y: 3.04}
+  m_Size: {x: 1.65, y: 14.13}
   m_EdgeRadius: 0
 --- !u!212 &1257603471
 SpriteRenderer:
@@ -45021,7 +45001,7 @@ GameObject:
   - component: {fileID: 1312486828}
   - component: {fileID: 1312486830}
   - component: {fileID: 1312486829}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: DownBarrier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45159,7 +45139,7 @@ GameObject:
   - component: {fileID: 1379937685}
   - component: {fileID: 1379937687}
   - component: {fileID: 1379937686}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: UpBarrier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45287,7 +45267,7 @@ GameObject:
   - component: {fileID: 1408170050}
   - component: {fileID: 1408170052}
   - component: {fileID: 1408170051}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: RightBarrier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45601,7 +45581,7 @@ GameObject:
   - component: {fileID: 1468195503}
   - component: {fileID: 1468195505}
   - component: {fileID: 1468195504}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: UpBarrier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45776,7 +45756,7 @@ GameObject:
   - component: {fileID: 1558772248}
   - component: {fileID: 1558772250}
   - component: {fileID: 1558772249}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: LeftBarrier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45923,11 +45903,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1627336785}
   - component: {fileID: 1627336784}
-  - component: {fileID: 1627336783}
   - component: {fileID: 1627336782}
   - component: {fileID: 1627336781}
   - component: {fileID: 1627336786}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: SceneMonster (3)
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -45972,31 +45951,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &1627336783
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1627336780}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 1.9, y: -0.58}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.9734272, y: 0.5079492}
-    oldSize: {x: 11.09, y: 7.6800003}
-    newSize: {x: 2.56, y: 2.56}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.7, y: 3.04}
-  m_EdgeRadius: 0
 --- !u!212 &1627336784
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -46158,7 +46112,7 @@ GameObject:
   - component: {fileID: 1664353491}
   - component: {fileID: 1664353493}
   - component: {fileID: 1664353492}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50775,7 +50729,7 @@ GameObject:
   - component: {fileID: 1675245358}
   - component: {fileID: 1675245360}
   - component: {fileID: 1675245359}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Particle System (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55790,7 +55744,7 @@ GameObject:
   - component: {fileID: 1778893352}
   - component: {fileID: 1778893354}
   - component: {fileID: 1778893353}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: DownBarrier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55863,7 +55817,7 @@ GameObject:
   - component: {fileID: 1788738854}
   - component: {fileID: 1788738856}
   - component: {fileID: 1788738855}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Particle System (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60478,7 +60432,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1814444472}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60647,7 +60601,7 @@ GameObject:
   - component: {fileID: 1957791809}
   - component: {fileID: 1957791811}
   - component: {fileID: 1957791810}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: LeftBarrier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60863,7 +60817,7 @@ GameObject:
   - component: {fileID: 1987398575}
   - component: {fileID: 1987398577}
   - component: {fileID: 1987398576}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: UpBarrier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60936,7 +60890,7 @@ GameObject:
   - component: {fileID: 1990656251}
   - component: {fileID: 1990656253}
   - component: {fileID: 1990656252}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Particle System (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65552,11 +65506,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2028728963}
   - component: {fileID: 2028728962}
-  - component: {fileID: 2028728961}
   - component: {fileID: 2028728960}
   - component: {fileID: 2028728959}
   - component: {fileID: 2028728964}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: SceneMonster
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -65601,31 +65554,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &2028728961
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2028728958}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 1.9, y: -0.58}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.9734272, y: 0.5079492}
-    oldSize: {x: 11.09, y: 7.6800003}
-    newSize: {x: 2.56, y: 2.56}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.7, y: 3.04}
-  m_EdgeRadius: 0
 --- !u!212 &2028728962
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -65932,7 +65860,7 @@ GameObject:
   - component: {fileID: 2123490603}
   - component: {fileID: 2123490605}
   - component: {fileID: 2123490604}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: LeftBarrier
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -33,7 +33,7 @@ public class GumPlace : MonoBehaviour {
 			//change rotation
 			dir = gum.transform.position - trampoline.transform.position;
 			angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-			trampoline.GetComponent<TrampolinePlace>().Gum.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+			trampoline.GetComponent<TrampolinePlace>().Gum.transform.rotation = Quaternion.AngleAxis(angle/*Doe hier -20 om de angle te veranderen*/, Vector3.forward);
 			
 			if(Input.GetButtonDown("Fire3")){
 				Destroy(gum);
@@ -54,7 +54,9 @@ public class GumPlace : MonoBehaviour {
 				}
 				if(otherGumPlace != null){
 					if(otherGumPlace.GetComponent<AGuMPLace>().hasGum != true){
-						Mouse.DisplayText("Press Mouse 1 to place gum");
+						if(otherGumPlace.GetComponent<AGuMPLace>().ShowText){
+							Mouse.DisplayText("Press Mouse 1 to place gum");
+						}
 					}
 					if(Input.GetButtonDown("Fire3")){
 						Mouse.DisplayText("");
@@ -83,7 +85,9 @@ public class GumPlace : MonoBehaviour {
 				}
 				if(trampoline != null){
 					if(trampoline.GetComponent<TrampolinePlace>().hasGum != true){
-						Mouse.DisplayText("Press Mouse 1 to place gum");
+						if(trampoline.GetComponent<TrampolinePlace>().ShowText){
+							Mouse.DisplayText("Press Mouse 1 to place gum");
+						}
 						if(Input.GetButtonDown("Fire3")){
 							Mouse.DisplayText("");
 							//Debug.Log("Place gum");
@@ -100,7 +104,9 @@ public class GumPlace : MonoBehaviour {
 							gum = null;
 						}
 					} else {
-						Mouse.DisplayText("Press Mouse 1 to make trampoline");
+						if(trampoline.GetComponent<TrampolinePlace>().ShowText){
+							Mouse.DisplayText("Press Mouse 1 to make trampoline");
+						}
 						if(!TPintheMaking){
 							if(Input.GetButtonDown("Fire3")){
 								XscaleOrigin = trampoline.GetComponent<TrampolinePlace>().Gum.transform.localScale.x * Mathf.Sqrt(((gum.transform.position.x - trampoline.transform.position.x)*(gum.transform.position.x - trampoline.transform.position.x) + (gum.transform.position.y - trampoline.transform.position.y)*(gum.transform.position.y - trampoline.transform.position.y)));
@@ -142,7 +148,8 @@ public class GumPlace : MonoBehaviour {
 	}
 
 	float CalculatePosition(float guminPlace, float guminHand){
-		return ((guminHand - guminPlace)/2)+guminPlace;
+		/*naar de player toe*/ //return ((guminHand - guminPlace)/2)+guminPlace;
+		/*van de player weg*/ 	return guminPlace-((guminHand - guminPlace)/2);
 	}
 
 	void OnTriggerStay2D(Collider2D other){
