@@ -11481,6 +11481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 471725895}
+  Mouse: {fileID: 0}
 --- !u!61 &1003880145
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17595,7 +17596,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1535766800}
   m_LocalRotation: {x: -0, y: -0, z: 0.5680814, w: 0.8229724}
-  m_LocalPosition: {x: 40.4267, y: -10.21, z: -2}
+  m_LocalPosition: {x: 40.4267, y: -11.63, z: -2}
   m_LocalScale: {x: 0.61329764, y: 0.6132977, z: 0.6132977}
   m_Children:
   - {fileID: 1503788460}
