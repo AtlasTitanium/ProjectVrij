@@ -6705,6 +6705,21 @@ Prefab:
       propertyPath: m_Size.x
       value: 30.166327
       objectReference: {fileID: 0}
+    - target: {fileID: 212708379624167638, guid: 077fe2fb0a2b0624b8704dbd474060d6,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.32941177
+      objectReference: {fileID: 0}
+    - target: {fileID: 212708379624167638, guid: 077fe2fb0a2b0624b8704dbd474060d6,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.32941177
+      objectReference: {fileID: 0}
+    - target: {fileID: 212708379624167638, guid: 077fe2fb0a2b0624b8704dbd474060d6,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.32941177
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 077fe2fb0a2b0624b8704dbd474060d6, type: 2}
   m_IsPrefabParent: 0
@@ -12408,6 +12423,21 @@ Prefab:
         type: 2}
       propertyPath: m_SpriteTilingProperty.newSize.x
       value: 7.465354
+      objectReference: {fileID: 0}
+    - target: {fileID: 212708379624167638, guid: 077fe2fb0a2b0624b8704dbd474060d6,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.32941177
+      objectReference: {fileID: 0}
+    - target: {fileID: 212708379624167638, guid: 077fe2fb0a2b0624b8704dbd474060d6,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.32941177
+      objectReference: {fileID: 0}
+    - target: {fileID: 212708379624167638, guid: 077fe2fb0a2b0624b8704dbd474060d6,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.32941177
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 077fe2fb0a2b0624b8704dbd474060d6, type: 2}
@@ -19648,6 +19678,21 @@ Prefab:
       propertyPath: m_Name
       value: DarkStones (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 212708379624167638, guid: 077fe2fb0a2b0624b8704dbd474060d6,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.32941177
+      objectReference: {fileID: 0}
+    - target: {fileID: 212708379624167638, guid: 077fe2fb0a2b0624b8704dbd474060d6,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.32941177
+      objectReference: {fileID: 0}
+    - target: {fileID: 212708379624167638, guid: 077fe2fb0a2b0624b8704dbd474060d6,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.32941177
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 077fe2fb0a2b0624b8704dbd474060d6, type: 2}
   m_IsPrefabParent: 0
@@ -25742,6 +25787,21 @@ Prefab:
         type: 2}
       propertyPath: m_SpriteTilingProperty.newSize.y
       value: 60.575768
+      objectReference: {fileID: 0}
+    - target: {fileID: 212708379624167638, guid: 077fe2fb0a2b0624b8704dbd474060d6,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.32941177
+      objectReference: {fileID: 0}
+    - target: {fileID: 212708379624167638, guid: 077fe2fb0a2b0624b8704dbd474060d6,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.32941177
+      objectReference: {fileID: 0}
+    - target: {fileID: 212708379624167638, guid: 077fe2fb0a2b0624b8704dbd474060d6,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.32941177
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 077fe2fb0a2b0624b8704dbd474060d6, type: 2}
