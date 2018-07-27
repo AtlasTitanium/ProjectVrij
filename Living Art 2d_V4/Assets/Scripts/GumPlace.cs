@@ -7,6 +7,7 @@ public class GumPlace : MonoBehaviour {
 	public GameObject gum;
 	private Color originalColor;
 	public GameObject otherGumPlace;
+	public GameObject PaintingHole;
 	public GameObject trampoline;
 	public GameObject monster;
 	public GameObject Babymonster;
@@ -55,7 +56,7 @@ public class GumPlace : MonoBehaviour {
 				if(otherGumPlace != null){
 					if(otherGumPlace.GetComponent<AGuMPLace>().hasGum != true){
 						if(otherGumPlace.GetComponent<AGuMPLace>().ShowText){
-							Mouse.DisplayText("Press Mouse 1 to place gum");
+							Mouse.DisplayText("Press Left Mouse to place gum");
 						}
 					}
 					if(Input.GetButtonDown("Fire3")){
@@ -86,7 +87,7 @@ public class GumPlace : MonoBehaviour {
 				if(trampoline != null){
 					if(trampoline.GetComponent<TrampolinePlace>().hasGum != true){
 						if(trampoline.GetComponent<TrampolinePlace>().ShowText){
-							Mouse.DisplayText("Press Mouse 1 to place gum");
+							Mouse.DisplayText("Press Left Mouse to place gum");
 						}
 						if(Input.GetButtonDown("Fire3")){
 							Mouse.DisplayText("");
@@ -105,7 +106,7 @@ public class GumPlace : MonoBehaviour {
 						}
 					} else {
 						if(trampoline.GetComponent<TrampolinePlace>().ShowText){
-							Mouse.DisplayText("Press Mouse 1 to make trampoline");
+							Mouse.DisplayText("Press Left Mouse to make trampoline");
 						}
 						if(!TPintheMaking){
 							if(Input.GetButtonDown("Fire3")){
@@ -116,7 +117,26 @@ public class GumPlace : MonoBehaviour {
 							}
 						}
 					}
-					
+				}
+				if(PaintingHole != null){
+					if(PaintingHole.GetComponent<PaintingHole>().hasGum != true){
+						Mouse.DisplayText("Press Left Mouse to place gum");
+					}
+					if(Input.GetButtonDown("Fire3")){
+						Mouse.DisplayText("");
+						gum.tag = "Gum";
+						gum.GetComponent<SpriteRenderer>().sprite = middlegumSprite;
+						StartCoroutine(NextGumSprite(gum));
+						gum.transform.parent = PaintingHole.transform;
+						gum.GetComponent<Rigidbody2D>().gravityScale = 0;
+						gum.transform.position = PaintingHole.transform.position;
+						gum.transform.localPosition = new Vector3(gum.transform.localPosition.x,gum.transform.localPosition.y,-1);
+						gum.transform.localScale = new Vector2(gum.transform.localScale.x * 2,gum.transform.localScale.y * 2);
+						gum.transform.rotation = Quaternion.identity;
+						PaintingHole.GetComponent<PaintingHole>().hasGum = true;
+						//otherGumPlace.GetComponent<SpriteRenderer>().color = originalColor;
+						gum = null;
+					}
 				}
 				if(monster != null){
 					if(monster.GetComponent<gravityMonster>().talkedToPlayer != true){
@@ -175,6 +195,11 @@ public class GumPlace : MonoBehaviour {
 				Babymonster = other.gameObject;
 			}
 		}
+		if(other.transform.tag == "PaintingHole"){
+			if(PaintingHole == null){
+				PaintingHole = other.gameObject;
+			}
+		}
 	}
 
 	void OnTriggerExit2D(Collider2D other){
@@ -205,6 +230,12 @@ public class GumPlace : MonoBehaviour {
 				Mouse.DisplayText("");
 				//monster.GetComponent<gravityMonster>().talkedToPlayer = false;
 				Babymonster = null;
+			}
+		}
+		if(other.transform.tag == "PaintingHole"){
+			if(PaintingHole != null){
+				Mouse.DisplayText("");
+				PaintingHole = null;
 			}
 		}
 	}

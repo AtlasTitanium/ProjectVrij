@@ -69,6 +69,11 @@ public class PickupObject : MonoBehaviour{
 				other.transform.GetComponent<Pushable>().ChangeColliders();
 			}
 		}
+		if(other.GetComponent<LockThePainting>()){
+			if(other.GetComponent<LockThePainting>().locked){
+				mouse.DisplayText("The painting is perfectly blocking the rain");
+			}
+		}
 	}
 
 	void OnTriggerExit2D(Collider2D other){
@@ -83,6 +88,9 @@ public class PickupObject : MonoBehaviour{
 			mouse.DisplayText("");
 		}
 		if(other.transform.tag == "Pushable"){
+			mouse.DisplayText("");
+		}
+		if(other.GetComponent<LockThePainting>()){
 			mouse.DisplayText("");
 		}
 	}

@@ -20,6 +20,7 @@ TagManager:
   - Outside
   - PaintingHole
   - Pushable
+  - Ladder
   layers:
   - Default
   - TransparentFX

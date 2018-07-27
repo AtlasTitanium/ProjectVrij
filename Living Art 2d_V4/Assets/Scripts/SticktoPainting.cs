@@ -29,7 +29,9 @@ public class SticktoPainting : MonoBehaviour {
 	}
 	void OnTriggerStay2D(Collider2D other){
 		if(other.transform.tag == "PaintingHole"){
-			Hole = other.gameObject;
+			if(other.GetComponent<PaintingHole>().hasGum){
+				Hole = other.gameObject;
+			}
 		}
 	}
 

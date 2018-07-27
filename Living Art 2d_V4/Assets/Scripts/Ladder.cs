@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class Ladder : MonoBehaviour {
 	public GameObject Player;
+	public MouseText Mouse;
 
 	void Update(){
 		if(Player != null){
+			if(Mouse != null){
+				Mouse.DisplayText("Hold Space to go up");
+			}
 			if(Input.GetButton("Jump")){
 				Debug.Log("goUp");
 				Player.GetComponent<PlayerController>().enabled = false;
@@ -31,6 +35,9 @@ public class Ladder : MonoBehaviour {
 			Player.GetComponent<Rigidbody2D>().drag = 0f;
 			Player.GetComponent<Rigidbody2D>().gravityScale = 1;
 			Player = null;
+			if(Mouse != null){
+				Mouse.DisplayText("");
+			}
 		}
 	}
 }
