@@ -1,0 +1,12 @@
+Hey lisanne,
+hier is een kleine help voor als je nog aan de game wilt werken: (ik weet niet hoeveel hulp je nodig hebt, maar dit is gewoon een kleine help i guess)(sms me als je nog een beetje hulp nodig hebt)
+
+- Gebruik de Triggers prefab hiernaast om iets van text elementen te maken. als de player door de collider loopt zal het gegeven text element opschijnen voor de gegeven tijd.
+
+- Als je meer art in de game doet is het niet heel lastig, de dragt gewoon de sprites in de game, rescale als het moet, en je kan in de inspector in de transform de z axis veranderen om de sprite
+voor of achter andere gameobjects te plaatsen
+
+- Verder raad ik aan om gewoon op de unity website voor hulp op te zoeken met het implementeren van bijvoorbeeld sound, movement of effecten. en als je iets ziet wat al in de game zit,
+dan kan je misschien ook al in de code kijken die ik heb gemaakt voor hulp. (mijn code sucks tho dus good luck ^^)
+
+-verder heb ik niet heel veel tips... sms me als je echt niet iets begrijpt. en good luck! Ik hoop dat het goed komt ^^
