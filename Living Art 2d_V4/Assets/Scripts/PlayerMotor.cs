@@ -33,6 +33,7 @@ public class PlayerMotor : MonoBehaviour {
 	public int Xbox_One_Controller = 0;
 	public bool Level2 = false;
 	public Sprite idleSprite;
+	
 	private void Awake(){
 		CheckIfGround = transform.Find("GroundCheck");
 		CeilingCheck = transform.Find("CeilingCheck");

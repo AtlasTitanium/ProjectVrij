@@ -11,9 +11,11 @@ public class PlayerController : MonoBehaviour {
 	//[HideInInspector]
 	public bool acitvitity = false;
 	
+	public AudioSource MenuSound;
 	
 	void Update(){
 		if(Input.GetButtonDown("Escape")){
+			MenuSound.Play();
 			Switch();
 		}
 		//Debug.Log(jump);

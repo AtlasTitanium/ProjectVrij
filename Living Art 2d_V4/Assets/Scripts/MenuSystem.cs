@@ -11,6 +11,7 @@ public class MenuSystem : MonoBehaviour {
 	private bool helpCanvas = false;
 	public Image ShadowText;
 	public Image txt;
+	public AudioSource ButtonSound;
 
 	void Start () {
 		Button ReturnBtn = Return.GetComponent<Button>();
@@ -29,6 +30,7 @@ public class MenuSystem : MonoBehaviour {
 				Return.gameObject.SetActive(true);
 				Help.gameObject.SetActive(true);
 				Quit.gameObject.SetActive(true);
+				Reset.gameObject.SetActive(true);
 				ShadowText.gameObject.SetActive(true);
 				txt.gameObject.SetActive(true);
 				HelpImage.SetActive(false);
@@ -39,17 +41,21 @@ public class MenuSystem : MonoBehaviour {
 	}
 	
 	void ReturnClick(){
+		ButtonSound.Play();
 		GetComponent<PlayerController>().Switch();
 	}
 
 	void ResetClick(){
+		ButtonSound.Play();
 		 Application.LoadLevel(Application.loadedLevel);
 	}
 
 	void HelpClick() {
+		ButtonSound.Play();
 		Return.gameObject.SetActive(false);
 		Help.gameObject.SetActive(false);
 		Quit.gameObject.SetActive(false);
+		Reset.gameObject.SetActive(false);
 		ShadowText.gameObject.SetActive(false);
 		txt.gameObject.SetActive(false);
 		HelpImage.SetActive(true);
@@ -57,6 +63,7 @@ public class MenuSystem : MonoBehaviour {
 	}
 
 	void QuitClick() {
+		ButtonSound.Play();
 		Application.LoadLevel(MainMenuInteger);
 	}
 }
