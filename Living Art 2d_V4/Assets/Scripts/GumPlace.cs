@@ -168,8 +168,8 @@ public class GumPlace : MonoBehaviour {
 	}
 
 	float CalculatePosition(float guminPlace, float guminHand){
-		/*naar de player toe*/ //return ((guminHand - guminPlace)/2)+guminPlace;
-		/*van de player weg*/ 	return guminPlace-((guminHand - guminPlace)/2);
+		/*naar de player toe*/ 	return ((guminHand - guminPlace)/2)+guminPlace;
+		/*van de player weg*/ 	//return guminPlace-((guminHand - guminPlace)/2);
 	}
 
 	void OnTriggerStay2D(Collider2D other){
